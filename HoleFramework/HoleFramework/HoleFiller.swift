@@ -12,13 +12,14 @@ public typealias Point2D = (x:Int, y:Int)
 
 public class HoleFiller {
     
+    public var z: Float = 0
+    public var e: Float = 0.00001              // Epsilon, a small value
+    
     var image: [[Float]]!
     public var visited: [[Float]]!      // Have we visited this point before?
-    var z: Float = 0
-    var x: Point2D!                     // Missing pixel location
-    var ε: Float = 0.00001              // Epsilon, a small value
     public var animated: Bool = false   // Animate step changes so we can see if it works
     public var boundary: [[Float]]!     // The boundary
+    var boundaryPoints: [Point2D] = []
     public private(set) var boundaryPixelCount: Int = 0
     public private(set) var pixelCount: Int = 0
     
@@ -41,13 +42,14 @@ public class HoleFiller {
     // MARK:- main method to call
     
     public func findHole() {
-        
-        //let start: Point2D = (0,0)
-        //walkToFindEdge(from: start)
         walkToFindEdges()
     }
     
-    // MARK:- Helpers
+    public func fillHole(at x: Point2D) {
+        
+    }
+    
+    // MARK:- Grid Helpers
     
     func isInBounds(point: Point2D) -> Bool {
         let inHorizontalBounds = point.x > -1 && point.x < image[0].count
@@ -62,7 +64,7 @@ public class HoleFiller {
         return image[point.y][point.x]
     }
     
-    // MARK:- Recursive algorithm
+    // MARK:- Find the edges
     
     func walkToFindEdges() {
         
@@ -90,6 +92,7 @@ public class HoleFiller {
                 if sum < 0 && pixel != -1 {
                     boundary[row][col] = 1
                     boundaryPixelCount += 1
+                    boundaryPoints.append(Point2D(row, col))
                 }
                 if pixel == -1 {
                     pixelCount += 1
@@ -103,56 +106,87 @@ public class HoleFiller {
         
     }
     
-    func walkToFindEdge(from: Point2D) {
+    func summation() {
         
-        DLog(from)
-
-        if isInBounds(point: from) == false {
-            return
-        }
-
-        if animated {
-            Thread.sleep(forTimeInterval: 0.1)
+        for i in boundaryPoints {
+            
         }
         
-        let pixel = image[from.y][from.x]
-        
-        // Have we visited
-        if visited[from.y][from.x] > 0 {
-            return
-        }
-        visited[from.y][from.x] = 1
-        
-        if pixel == -1 {
-            return
-        }
-        
-        
-        let topLeft = valueForPixel(Point2D(from.y - 1, from.x + 1))
-        let top = valueForPixel(Point2D(from.y, from.x + 1))
-        let topRight = valueForPixel(Point2D(from.y + 1, from.x + 1))
-        let left = valueForPixel(Point2D(from.y - 1, from.x))
-        // pixel itself
-        let right = valueForPixel(Point2D(from.y + 1, from.x))
-        let bottomLeft = valueForPixel(Point2D(from.y - 1, from.x - 1))
-        let bottom = valueForPixel(Point2D(from.y, from.x - 1))
-        let bottomRight = valueForPixel(Point2D(from.y + 1, from.x - 1))
-        
-        let sum = topLeft + top + topRight + left + right + bottomLeft + bottom + bottomRight
-        if sum < 0 {
-            boundary[from.y][from.x] = 1
-        }
-        
-        let north = Point2D(from.y, from.x + 1)
-        let south = Point2D(from.y, from.x - 1)
-        let east = Point2D(from.y + 1, from.x)
-        let west = Point2D(from.y - 1, from.x)
-        
-        walkToFindEdge(from: north)
-        walkToFindEdge(from: south)
-        walkToFindEdge(from: east)
-        walkToFindEdge(from: west)
     }
+    
+    func newPixel() -> Float {
+        
+        * image[row][col]
+        
+    }
+    
+    /**
+     Weighting function
+     
+     _____1_____
+     ||x−yi|| +ε
+     */
+    func weighting(boundaryPixel: Point2D, missingPixel: Point2D) -> Float {
+        
+        let xDistance = Float(missingPixel.x - boundaryPixel.x)
+        let yDistance = Float(missingPixel.y - boundaryPixel.y)
+        
+        let distance = sqrt(xDistance*xDistance + yDistance*yDistance)
+        //CGVector(dx: vector.dx / scalar, dy: vector.dy / scalar)
+        //let normalized = normalise(x - yi)
+        return 1 / pow(distance, z) + e
+    }
+    
+//    func walkToFindEdge(from: Point2D) {
+//
+//        DLog(from)
+//
+//        if isInBounds(point: from) == false {
+//            return
+//        }
+//
+//        if animated {
+//            Thread.sleep(forTimeInterval: 0.1)
+//        }
+//
+//        let pixel = image[from.y][from.x]
+//
+//        // Have we visited
+//        if visited[from.y][from.x] > 0 {
+//            return
+//        }
+//        visited[from.y][from.x] = 1
+//
+//        if pixel == -1 {
+//            return
+//        }
+//
+//
+//        let topLeft = valueForPixel(Point2D(from.y - 1, from.x + 1))
+//        let top = valueForPixel(Point2D(from.y, from.x + 1))
+//        let topRight = valueForPixel(Point2D(from.y + 1, from.x + 1))
+//        let left = valueForPixel(Point2D(from.y - 1, from.x))
+//        // pixel itself
+//        let right = valueForPixel(Point2D(from.y + 1, from.x))
+//        let bottomLeft = valueForPixel(Point2D(from.y - 1, from.x - 1))
+//        let bottom = valueForPixel(Point2D(from.y, from.x - 1))
+//        let bottomRight = valueForPixel(Point2D(from.y + 1, from.x - 1))
+//
+//        let sum = topLeft + top + topRight + left + right + bottomLeft + bottom + bottomRight
+//        if sum < 0 {
+//            boundary[from.y][from.x] = 1
+//        }
+//
+//        let north = Point2D(from.y, from.x + 1)
+//        let south = Point2D(from.y, from.x - 1)
+//        let east = Point2D(from.y + 1, from.x)
+//        let west = Point2D(from.y - 1, from.x)
+//
+//        walkToFindEdge(from: north)
+//        walkToFindEdge(from: south)
+//        walkToFindEdge(from: east)
+//        walkToFindEdge(from: west)
+//    }
     
 //    func walkAlongEdge(from: Point2D) {
 //
