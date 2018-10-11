@@ -10,7 +10,7 @@
             ignoreCount = "0"
             continueAfterRunningActions = "No"
             filePath = "HoleApp/HoleApp/GameScene.swift"
-            timestampString = "560987688.772915"
+            timestampString = "560993306.092684"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
             startingLineNumber = "47"
@@ -26,11 +26,11 @@
             ignoreCount = "0"
             continueAfterRunningActions = "No"
             filePath = "HoleFramework/HoleFramework/HoleFiller.swift"
-            timestampString = "560987150.604211"
+            timestampString = "560993306.092767"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "90"
-            endingLineNumber = "90"
+            startingLineNumber = "95"
+            endingLineNumber = "95"
             landmarkName = "walkToFindEdges()"
             landmarkType = "7">
          </BreakpointContent>
@@ -42,11 +42,11 @@
             ignoreCount = "0"
             continueAfterRunningActions = "No"
             filePath = "HoleFramework/HoleFramework/HoleFiller.swift"
-            timestampString = "560987150.604596"
+            timestampString = "560993306.0928299"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "79"
-            endingLineNumber = "79"
+            startingLineNumber = "84"
+            endingLineNumber = "84"
             landmarkName = "walkToFindEdges()"
             landmarkType = "7">
          </BreakpointContent>

@@ -20,6 +20,7 @@ public class HoleFiller {
     public var animated: Bool = false   // Animate step changes so we can see if it works
     public var boundary: [[Float]]!     // The boundary
     var boundaryPoints: [Point2D] = []
+    var missingPixels: [Point2D] = []
     public private(set) var boundaryPixelCount: Int = 0
     public private(set) var pixelCount: Int = 0
     
@@ -43,6 +44,8 @@ public class HoleFiller {
     
     public func findHole() {
         walkToFindEdges()
+        
+        fillMissingPixels()
     }
     
     public func fillHole(at x: Point2D) {
@@ -96,6 +99,7 @@ public class HoleFiller {
                 }
                 if pixel == -1 {
                     pixelCount += 1
+                    missingPixels.append(Point2D(row, col))
                 }
                 
             }
@@ -106,20 +110,28 @@ public class HoleFiller {
         
     }
     
-    func summation() {
+    func fillMissingPixels() {
+        let newValue = newPixel(missingPixel: Point2D(3, 2))
+        for i in missingPixels {
+            image[i.y][i.x] = newValue
+        }
+    }
+    
+    func newPixel(missingPixel: Point2D) -> Float {
         
+        var dividends: Float = 0
+        var divisors: Float = 0
         for i in boundaryPoints {
             
+            dividends += weighting(boundaryPixel: i, missingPixel: missingPixel) * image[i.y][i.x]
+            divisors += weighting(boundaryPixel: i, missingPixel: missingPixel)
+            
         }
+        let quotient = dividends / divisors
         
+        return quotient
     }
-    
-    func newPixel() -> Float {
-        
-        * image[row][col]
-        
-    }
-    
+
     /**
      Weighting function
      
