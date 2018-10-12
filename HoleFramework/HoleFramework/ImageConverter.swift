@@ -26,6 +26,7 @@ class ImageConverter {
         let contextRef = CGContext(data: &intensities, width: width, height: height, bitsPerComponent: bitsPerComponent, bytesPerRow: bytesPerRow, space: colorSpace, bitmapInfo: 0)
         contextRef?.draw(cgImage, in: CGRect(x: 0.0, y: 0.0, width: CGFloat(width), height: CGFloat(height)))
         
+        // Convert 1D Array to 2D
         var pixelArray: [[Float]] = Array(repeating: Array(repeating: 0, count: width), count: height)
         for row in 0..<height {
             for col in 0..<width {
@@ -34,6 +35,28 @@ class ImageConverter {
         }
         
         return (pixelArray, width, height)
+    }
+    
+    class func convert2DPixelArrayToImage(array2D: [[Float]], width: Int, height: Int) -> CGImage? {
+        
+        let bitsPerComponent = 8
+        let bytesPerRow = width * 4
+        let colorSpace = CGColorSpaceCreateDeviceGray()
+        
+        let context = CGContext(data: nil, width: width, height: height, bitsPerComponent: bitsPerComponent, bytesPerRow: bytesPerRow, space: colorSpace, bitmapInfo: 0)!
+        let buffer = context.data!
+        let pixelBuffer = buffer.bindMemory(to: UInt8.self, capacity: width * height)
+        
+        for row in 0..<height {
+            for col in 0..<width {
+                let index = (row * bytesPerRow) + col
+                pixelBuffer[index] = UInt8(array2D[row][col] * 255)
+            }
+        }
+        
+        let cgImage = context.makeImage()!
+        
+        return nil
     }
     
 }
