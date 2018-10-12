@@ -26,7 +26,7 @@
             ignoreCount = "0"
             continueAfterRunningActions = "No"
             filePath = "HoleFramework/HoleFramework/HoleFiller.swift"
-            timestampString = "561066880.631646"
+            timestampString = "561067842.28866"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
             startingLineNumber = "84"
@@ -41,13 +41,13 @@
             shouldBeEnabled = "Yes"
             ignoreCount = "0"
             continueAfterRunningActions = "No"
-            filePath = "HoleFramework/HoleFramework/ImageConverter.swift"
-            timestampString = "561066880.631713"
+            filePath = "HoleFramework/HoleFrameworkTests/GenerationTests.swift"
+            timestampString = "561067842.289037"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "58"
-            endingLineNumber = "58"
-            landmarkName = "convert2DPixelArrayToImage(array2D:width:height:)"
+            startingLineNumber = "99"
+            endingLineNumber = "99"
+            landmarkName = "test_use_real_image3()"
             landmarkType = "7">
          </BreakpointContent>
       </BreakpointProxy>

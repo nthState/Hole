@@ -26,7 +26,7 @@ class GenerationTests : XCTestCase {
         let holeFiller = HoleFiller(image: imageData)
         
         // Create a hole in the image data
-        holeFiller.createSquareHole(at: Point2D(1, 1), width: 2, height: 2)
+        holeFiller.createSquareHole(at: Point2D(1, 1), width: 5, height: 5)
         
         let debug = holeFiller.printImageArray()
         print(debug)
@@ -35,7 +35,67 @@ class GenerationTests : XCTestCase {
         holeFiller.findHole()
         holeFiller.fillMissingPixels()
         
-        let x = ImageConverter.convert2DPixelArrayToImage(array2D: holeFiller.image, width: width, height: height)
+        let outputImage = ImageConverter.convert2DPixelArrayToImage(array2D: holeFiller.image, width: width, height: height)
+        
+        // Assert
+        XCTAssertEqual(holeFiller.boundaryPixelCount, 12)
+    }
+    
+    func test_use_real_image2() {
+        
+        // Arrange
+        
+        let bundle = Bundle(for: ProcessTests.self)
+        let url = bundle.url(forResource: "grey1", withExtension: "png")!
+        
+        let source = CGImageSourceCreateWithURL(url as CFURL, nil)!
+        let cgImage = CGImageSourceCreateImageAtIndex(source, 0, nil)!
+        
+        let (imageData, width, height) = ImageConverter.convertImageTo2DPixelArray(cgImage: cgImage)
+        
+        let holeFiller = HoleFiller(image: imageData)
+        
+        // Create a hole in the image data
+        holeFiller.createSquareHole(at: Point2D(100, 100), width: 50, height: 50)
+        
+        let debug = holeFiller.printImageArray()
+        print(debug)
+        
+        // Act
+        holeFiller.findHole()
+        holeFiller.fillMissingPixels()
+        
+        let outputImage = ImageConverter.convert2DPixelArrayToImage(array2D: holeFiller.image, width: width, height: height)
+        
+        // Assert
+        XCTAssertEqual(holeFiller.boundaryPixelCount, 12)
+    }
+    
+    func test_use_real_image3() {
+        
+        // Arrange
+        
+        let bundle = Bundle(for: ProcessTests.self)
+        let url = bundle.url(forResource: "grey1", withExtension: "png")!
+        
+        let source = CGImageSourceCreateWithURL(url as CFURL, nil)!
+        let cgImage = CGImageSourceCreateImageAtIndex(source, 0, nil)!
+        
+        let (imageData, width, height) = ImageConverter.convertImageTo2DPixelArray(cgImage: cgImage)
+        
+        let holeFiller = HoleFiller(image: imageData)
+        
+        // Create a hole in the image data
+        holeFiller.createSquareHole(at: Point2D(300, 300), width: 100, height: 100)
+        
+        let debug = holeFiller.printImageArray()
+        print(debug)
+        
+        // Act
+        holeFiller.findHole()
+        holeFiller.fillMissingPixels()
+        
+        let outputImage = ImageConverter.convert2DPixelArrayToImage(array2D: holeFiller.image, width: width, height: height)
         
         // Assert
         XCTAssertEqual(holeFiller.boundaryPixelCount, 12)

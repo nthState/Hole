@@ -54,9 +54,7 @@ class ImageConverter {
             }
         }
         
-        let cgImage = context.makeImage()!
-        
-        return nil
+        return context.makeImage()
     }
     
 }
