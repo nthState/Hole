@@ -91,8 +91,8 @@ public class HoleFiller {
                 let top = valueForPixel(Point2D(col, row - 1))
                 let topRight = valueForPixel(Point2D(col + 1, row - 1))
                 
-                let sum = topLeft + top + topRight + left + right + bottomLeft + bottom + bottomRight
-                if sum < 0 && pixel != -1 {
+                let contains = [topLeft, top, topRight, left, right, bottomLeft, bottom, bottomRight].contains(-1)
+                if contains && pixel != -1 {
                     boundary[row][col] = 1
                     boundaryPixelCount += 1
                     boundaryPoints.append(Point2D(row, col))
@@ -231,5 +231,35 @@ public class HoleFiller {
 //        }
 //
 //    }
+    
+}
+
+extension HoleFiller {
+    
+    func printImageArray() -> String {
+        var outer: [String] = []
+        for row in 0..<rows {
+            var inner: [String] = []
+            for col in 0..<cols {
+                let value = image[row][col]
+                inner.append(String(format: "%.2f", value))
+            }
+            outer.append("[\(inner.joined(separator: ","))],\n")
+        }
+        return "[\(outer.joined(separator: ""))]"
+    }
+    
+}
+
+extension HoleFiller {
+    
+    func createSquareHole(at: Point2D, width: Int, height: Int) {
+        
+        for row in (at.y)..<height+(at.y) {
+            for col in (at.x)..<width+(at.x) {
+                image[row][col] = -1
+            }
+        }
+    }
     
 }

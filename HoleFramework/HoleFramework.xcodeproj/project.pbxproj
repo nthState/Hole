@@ -7,6 +7,10 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		673EE61E21711BD300F9D694 /* ImageConverter.swift in Sources */ = {isa = PBXBuildFile; fileRef = 673EE61D21711BD300F9D694 /* ImageConverter.swift */; };
+		673EE62021711CC600F9D694 /* ProcessTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 673EE61F21711CC600F9D694 /* ProcessTests.swift */; };
+		673EE62221711CF100F9D694 /* grey1.png in Resources */ = {isa = PBXBuildFile; fileRef = 673EE62121711CF100F9D694 /* grey1.png */; };
+		673EE626217121F200F9D694 /* eggs.png in Resources */ = {isa = PBXBuildFile; fileRef = 673EE625217121F200F9D694 /* eggs.png */; };
 		67704A34216FFC6600FD5693 /* HoleFramework.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 67704A2A216FFC6600FD5693 /* HoleFramework.framework */; };
 		67704A4F216FFC9E00FD5693 /* FindHoleTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 67704A4D216FFC9E00FD5693 /* FindHoleTests.swift */; };
 		67704A50216FFC9E00FD5693 /* WholeHoleTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 67704A4E216FFC9E00FD5693 /* WholeHoleTests.swift */; };
@@ -25,6 +29,10 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
+		673EE61D21711BD300F9D694 /* ImageConverter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ImageConverter.swift; sourceTree = "<group>"; };
+		673EE61F21711CC600F9D694 /* ProcessTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProcessTests.swift; sourceTree = "<group>"; };
+		673EE62121711CF100F9D694 /* grey1.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = grey1.png; sourceTree = "<group>"; };
+		673EE625217121F200F9D694 /* eggs.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = eggs.png; sourceTree = "<group>"; };
 		67704A2A216FFC6600FD5693 /* HoleFramework.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = HoleFramework.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		67704A2E216FFC6600FD5693 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		67704A33216FFC6600FD5693 /* HoleFrameworkTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = HoleFrameworkTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -76,6 +84,7 @@
 			isa = PBXGroup;
 			children = (
 				67704A51216FFCA500FD5693 /* HoleFiller.swift */,
+				673EE61D21711BD300F9D694 /* ImageConverter.swift */,
 				67704A52216FFCA500FD5693 /* Logger.swift */,
 				67704A2E216FFC6600FD5693 /* Info.plist */,
 			);
@@ -87,6 +96,9 @@
 			children = (
 				67704A4D216FFC9E00FD5693 /* FindHoleTests.swift */,
 				67704A4E216FFC9E00FD5693 /* WholeHoleTests.swift */,
+				673EE61F21711CC600F9D694 /* ProcessTests.swift */,
+				673EE62121711CF100F9D694 /* grey1.png */,
+				673EE625217121F200F9D694 /* eggs.png */,
 				67704A3A216FFC6600FD5693 /* Info.plist */,
 			);
 			path = HoleFrameworkTests;
@@ -191,6 +203,8 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				673EE62221711CF100F9D694 /* grey1.png in Resources */,
+				673EE626217121F200F9D694 /* eggs.png in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -203,6 +217,7 @@
 			files = (
 				67704A53216FFCA500FD5693 /* HoleFiller.swift in Sources */,
 				67704A54216FFCA500FD5693 /* Logger.swift in Sources */,
+				673EE61E21711BD300F9D694 /* ImageConverter.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -212,6 +227,7 @@
 			files = (
 				67704A4F216FFC9E00FD5693 /* FindHoleTests.swift in Sources */,
 				67704A50216FFC9E00FD5693 /* WholeHoleTests.swift in Sources */,
+				673EE62021711CC600F9D694 /* ProcessTests.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
