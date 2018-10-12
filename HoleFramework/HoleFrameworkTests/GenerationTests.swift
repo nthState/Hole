@@ -144,6 +144,10 @@ class GenerationTests : XCTestCase {
         let (imageData, width, height) = ImageConverter.convertImageTo2DPixelArray(cgImage: cgImage)
         
         let holeFiller = HoleFiller(image: imageData)
+//        holeFiller.z = 1.12
+//        holeFiller.e = 0.01
+        holeFiller.z = 2.42
+        holeFiller.e = 0.0001
         
         // Create a hole in the image data
         holeFiller.createSquareHole(at: Point2D(260, 260), width: 100, height: 100)
