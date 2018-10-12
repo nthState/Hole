@@ -13,6 +13,8 @@
 		673EE626217121F200F9D694 /* eggs.png in Resources */ = {isa = PBXBuildFile; fileRef = 673EE625217121F200F9D694 /* eggs.png */; };
 		6747010A21712D380043C520 /* halfEggs.png in Resources */ = {isa = PBXBuildFile; fileRef = 6747010921712D380043C520 /* halfEggs.png */; };
 		6747010C217131B40043C520 /* GenerationTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6747010B217131B40043C520 /* GenerationTests.swift */; };
+		6747010E217140940043C520 /* grey2.png in Resources */ = {isa = PBXBuildFile; fileRef = 6747010D217140940043C520 /* grey2.png */; };
+		67470110217144160043C520 /* grey3.png in Resources */ = {isa = PBXBuildFile; fileRef = 6747010F217144160043C520 /* grey3.png */; };
 		67704A34216FFC6600FD5693 /* HoleFramework.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 67704A2A216FFC6600FD5693 /* HoleFramework.framework */; };
 		67704A4F216FFC9E00FD5693 /* FindHoleTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 67704A4D216FFC9E00FD5693 /* FindHoleTests.swift */; };
 		67704A50216FFC9E00FD5693 /* WholeHoleTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 67704A4E216FFC9E00FD5693 /* WholeHoleTests.swift */; };
@@ -37,6 +39,8 @@
 		673EE625217121F200F9D694 /* eggs.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = eggs.png; sourceTree = "<group>"; };
 		6747010921712D380043C520 /* halfEggs.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = halfEggs.png; sourceTree = "<group>"; };
 		6747010B217131B40043C520 /* GenerationTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GenerationTests.swift; sourceTree = "<group>"; };
+		6747010D217140940043C520 /* grey2.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = grey2.png; sourceTree = "<group>"; };
+		6747010F217144160043C520 /* grey3.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = grey3.png; sourceTree = "<group>"; };
 		67704A2A216FFC6600FD5693 /* HoleFramework.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = HoleFramework.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		67704A2E216FFC6600FD5693 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		67704A33216FFC6600FD5693 /* HoleFrameworkTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = HoleFrameworkTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -103,6 +107,8 @@
 				673EE61F21711CC600F9D694 /* ProcessTests.swift */,
 				6747010B217131B40043C520 /* GenerationTests.swift */,
 				673EE62121711CF100F9D694 /* grey1.png */,
+				6747010D217140940043C520 /* grey2.png */,
+				6747010F217144160043C520 /* grey3.png */,
 				673EE625217121F200F9D694 /* eggs.png */,
 				6747010921712D380043C520 /* halfEggs.png */,
 				67704A3A216FFC6600FD5693 /* Info.plist */,
@@ -209,7 +215,9 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				67470110217144160043C520 /* grey3.png in Resources */,
 				673EE62221711CF100F9D694 /* grey1.png in Resources */,
+				6747010E217140940043C520 /* grey2.png in Resources */,
 				6747010A21712D380043C520 /* halfEggs.png in Resources */,
 				673EE626217121F200F9D694 /* eggs.png in Resources */,
 			);

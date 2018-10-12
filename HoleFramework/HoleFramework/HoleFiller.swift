@@ -12,8 +12,8 @@ public typealias Point2D = (x:Int, y:Int)
 
 public class HoleFiller {
     
-    public var z: Float = 0
-    public var e: Float = 0.00001              // Epsilon, a small value
+    public var z: Float = 1.12
+    public var e: Float = 0.01              // Epsilon, a small value
     
     var image: [[Float]]!
     public var visited: [[Float]]!      // Have we visited this point before?
@@ -111,8 +111,13 @@ public class HoleFiller {
     }
     
     func fillMissingPixels() {
-        let newValue = newPixel(missingPixel: Point2D(3, 2))
+        
         for i in missingPixels {
+            
+            let newValue = newPixel(missingPixel: i)
+            
+            //DLog("newValue: \(newValue) for \(i)")
+            
             image[i.y][i.x] = newValue
         }
     }
@@ -122,13 +127,14 @@ public class HoleFiller {
         var dividends: Float = 0
         var divisors: Float = 0
         for i in boundaryPoints {
-            
-            dividends += weighting(boundaryPixel: i, missingPixel: missingPixel) * image[i.y][i.x]
-            divisors += weighting(boundaryPixel: i, missingPixel: missingPixel)
-            
+
+            let weight = weighting(boundaryPixel: i, missingPixel: missingPixel)
+            dividends += weight * image[i.y][i.x]
+            divisors += weight
+
         }
         let quotient = dividends / divisors
-        
+
         return quotient
     }
 
@@ -144,9 +150,11 @@ public class HoleFiller {
         let yDistance = Float(missingPixel.y - boundaryPixel.y)
         
         let distance = sqrt(xDistance*xDistance + yDistance*yDistance)
+        
+        //DLog("distance: \(missingPixel) to \(boundaryPixel) is \(distance)")
         //CGVector(dx: vector.dx / scalar, dy: vector.dy / scalar)
         //let normalized = normalise(x - yi)
-        return 1 / pow(distance, z) + e
+        return 1 / (pow(distance, z) + e)
     }
     
 //    func walkToFindEdge(from: Point2D) {

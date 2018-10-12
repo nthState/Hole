@@ -29,7 +29,7 @@ class ProcessTests : XCTestCase {
         holeFiller.createSquareHole(at: Point2D(1, 1), width: 2, height: 2)
         
         let debug = holeFiller.printImageArray()
-        print(debug)
+        //print(debug)
         
         // Act
         holeFiller.findHole()
@@ -56,7 +56,7 @@ class ProcessTests : XCTestCase {
         holeFiller.createSquareHole(at: Point2D(1, 1), width: 2, height: 2)
         
         let debug = holeFiller.printImageArray()
-        print(debug)
+        //print(debug)
         
         // Act
         holeFiller.findHole()
