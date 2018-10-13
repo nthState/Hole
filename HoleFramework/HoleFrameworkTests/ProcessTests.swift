@@ -26,7 +26,7 @@ class ProcessTests : XCTestCase {
         let holeFiller = HoleFiller(image: imageData)
         
         // Create a hole in the image data
-        holeFiller.createSquareHole(at: Point2D(1, 1), width: 2, height: 2)
+        holeFiller.createSquareHole(at: Point2D(1, 1), size: Size2D(2,2))
         
         let debug = holeFiller.printImageArray()
         //print(debug)
@@ -53,7 +53,7 @@ class ProcessTests : XCTestCase {
         let holeFiller = HoleFiller(image: imageData)
         
         // Create a hole in the image data
-        holeFiller.createSquareHole(at: Point2D(1, 1), width: 2, height: 2)
+        holeFiller.createSquareHole(at: Point2D(1, 1), size: Size2D(2,2))
         
         let debug = holeFiller.printImageArray()
         //print(debug)

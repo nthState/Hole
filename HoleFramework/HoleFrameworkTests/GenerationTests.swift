@@ -26,14 +26,14 @@ class GenerationTests : XCTestCase {
         let holeFiller = HoleFiller(image: imageData)
         
         // Create a hole in the image data
-        holeFiller.createSquareHole(at: Point2D(1, 1), width: 5, height: 5)
+        holeFiller.createSquareHole(at: Point2D(1, 1), size: Size2D(5, 5))
         
         let debug = holeFiller.printImageArray()
         //print(debug)
         
         // Act
         holeFiller.findHole()
-        holeFiller.fillMissingPixels()
+        holeFiller.fillHole()
         
         let outputImage = ImageConverter.convert2DPixelArrayToImage(array2D: holeFiller.image, width: width, height: height)
         
@@ -56,14 +56,14 @@ class GenerationTests : XCTestCase {
         let holeFiller = HoleFiller(image: imageData)
         
         // Create a hole in the image data
-        holeFiller.createSquareHole(at: Point2D(100, 100), width: 50, height: 50)
+        holeFiller.createSquareHole(at: Point2D(100, 100), size: Size2D(50,50))
         
         let debug = holeFiller.printImageArray()
         //print(debug)
         
         // Act
         holeFiller.findHole()
-        holeFiller.fillMissingPixels()
+        holeFiller.fillHole()
         
         let outputImage = ImageConverter.convert2DPixelArrayToImage(array2D: holeFiller.image, width: width, height: height)
         
@@ -86,14 +86,14 @@ class GenerationTests : XCTestCase {
         let holeFiller = HoleFiller(image: imageData)
         
         // Create a hole in the image data
-        holeFiller.createSquareHole(at: Point2D(300, 300), width: 100, height: 100)
+        holeFiller.createSquareHole(at: Point2D(300, 300), size: Size2D(100, 100))
         
         let debug = holeFiller.printImageArray()
         //print(debug)
         
         // Act
         holeFiller.findHole()
-        holeFiller.fillMissingPixels()
+        holeFiller.fillHole()
         
         let outputImage = ImageConverter.convert2DPixelArrayToImage(array2D: holeFiller.image, width: width, height: height)
         
@@ -116,14 +116,14 @@ class GenerationTests : XCTestCase {
         let holeFiller = HoleFiller(image: imageData)
         
         // Create a hole in the image data
-        holeFiller.createSquareHole(at: Point2D(260, 260), width: 100, height: 100)
+        holeFiller.createSquareHole(at: Point2D(260, 260), size: Size2D(100, 100))
         
         let debug = holeFiller.printImageArray()
         //print(debug)
         
         // Act
         holeFiller.findHole()
-        holeFiller.fillMissingPixels()
+        holeFiller.fillHole()
         
         let outputImage = ImageConverter.convert2DPixelArrayToImage(array2D: holeFiller.image, width: width, height: height)
         
@@ -150,14 +150,14 @@ class GenerationTests : XCTestCase {
         holeFiller.e = 0.0001
         
         // Create a hole in the image data
-        holeFiller.createSquareHole(at: Point2D(260, 260), width: 100, height: 100)
+        holeFiller.createSquareHole(at: Point2D(260, 160), size: Size2D(100, 100))
         
         let debug = holeFiller.printImageArray()
         //print(debug)
         
         // Act
         holeFiller.findHole()
-        holeFiller.fillMissingPixels()
+        holeFiller.fillHole()
         
         let outputImage = ImageConverter.convert2DPixelArrayToImage(array2D: holeFiller.image, width: width, height: height)
         

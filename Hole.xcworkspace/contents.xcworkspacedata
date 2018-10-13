@@ -5,6 +5,9 @@
       location = "group:HoleFramework/HoleFramework.xcodeproj">
    </FileRef>
    <FileRef
-      location = "group:HoleApp/HoleApp.xcodeproj">
+      location = "group:HoleMacApp/HoleMacApp.xcodeproj">
+   </FileRef>
+   <FileRef
+      location = "group:HoleCommandLine/HoleCommandLine.xcodeproj">
    </FileRef>
 </Workspace>

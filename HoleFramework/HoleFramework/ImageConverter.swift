@@ -9,9 +9,23 @@
 import Foundation
 import CoreImage
 
-class ImageConverter {
+public class ImageConverter {
     
-    class func convertImageTo2DPixelArray(cgImage: CGImage) -> ([[Float]], Int, Int) {
+    public class func pathToCGImage(path: String) -> CGImage? {
+        let url = URL(fileURLWithPath: path)
+        let source = CGImageSourceCreateWithURL(url as CFURL, nil)!
+        return CGImageSourceCreateImageAtIndex(source, 0, nil)
+    }
+    
+    @discardableResult
+    public class func save(cgImage: CGImage, to: String) -> Bool {
+        let url = URL(fileURLWithPath: to)
+        guard let dst = CGImageDestinationCreateWithURL(url as CFURL, kUTTypePNG, 1, nil) else { return false }
+        CGImageDestinationAddImage(dst, cgImage, nil)
+        return CGImageDestinationFinalize(dst)
+    }
+    
+    public class func convertImageTo2DPixelArray(cgImage: CGImage) -> ([[Float]], Int, Int) {
         
         let width = cgImage.width
         let height = cgImage.height
@@ -37,7 +51,7 @@ class ImageConverter {
         return (pixelArray, width, height)
     }
     
-    class func convert2DPixelArrayToImage(array2D: [[Float]], width: Int, height: Int) -> CGImage? {
+    public class func convert2DPixelArrayToImage(array2D: [[Float]], width: Int, height: Int) -> CGImage? {
         
         let bitsPerComponent = 8
         let bytesPerRow = width * 4

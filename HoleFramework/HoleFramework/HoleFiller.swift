@@ -8,21 +8,32 @@
 
 import Foundation
 
-public typealias Point2D = (x:Int, y:Int)
+public typealias Point2D = (x: Int, y: Int)
+public typealias Size2D = (width: Int, height: Int)
+
+public struct HoleParameters {
+    public var inputImage: String!
+    public var outputImage: String!
+    public var z:Float!
+    public var e:Float!
+    public var holeAt: Point2D!
+    public var holeSize: Size2D!
+    
+    public init() {}
+}
 
 public class HoleFiller {
     
-    public var z: Float = 1.12
-    public var e: Float = 0.01              // Epsilon, a small value
+    public var z: Float = 1.12                              // Weighting function pow()
+    public var e: Float = 0.0001                            // Epsilon, a small value
     
-    var image: [[Float]]!
-    public var visited: [[Float]]!      // Have we visited this point before?
-    public var animated: Bool = false   // Animate step changes so we can see if it works
-    public var boundary: [[Float]]!     // The boundary
-    var boundaryPoints: [Point2D] = []
-    var missingPixels: [Point2D] = []
-    public private(set) var boundaryPixelCount: Int = 0
-    public private(set) var pixelCount: Int = 0
+    public var image: [[Float]]!                            // 2D Array of the image data
+    public private(set) var visited: [[Float]]!             // Have we visited this point before?
+    public private(set) var boundary: [[Float]]!            // The boundary
+    public private(set) var boundaryPoints: [Point2D] = []  // Points that make the boundary
+    public private(set) var missingPixels: [Point2D] = []   // Missing pixel locations
+    public private(set) var boundaryPixelCount: Int = 0     // Count of boundary pixels
+    public private(set) var pixelCount: Int = 0             // Count of missing pixels
     
     public var rows: Int {
         return image.count
@@ -44,19 +55,13 @@ public class HoleFiller {
     
     public func findHole() {
         walkToFindEdges()
-        
-        fillMissingPixels()
-    }
-    
-    public func fillHole(at x: Point2D) {
-        
     }
     
     // MARK:- Grid Helpers
     
     func isInBounds(point: Point2D) -> Bool {
-        let inHorizontalBounds = point.x > -1 && point.x < image[0].count
-        let inVerticalBounds = point.y > -1 && point.y < image.count
+        let inHorizontalBounds = point.x > -1 && point.x < image[0].count - 1
+        let inVerticalBounds = point.y > -1 && point.y < image.count - 1
         return inHorizontalBounds && inVerticalBounds
     }
     
@@ -69,6 +74,9 @@ public class HoleFiller {
     
     // MARK:- Find the edges
     
+    /**
+     Find the edges of the hole
+    */
     func walkToFindEdges() {
         
         pixelCount = 0
@@ -107,21 +115,30 @@ public class HoleFiller {
         
         DLog("Boundary count: \(boundaryPixelCount)")
         DLog("Missing pixel count: \(pixelCount)")
-        
     }
     
-    func fillMissingPixels() {
+    /**
+     For every missing pixel, calculate a new pixel color
+    */
+    public func fillHole() {
         
         for i in missingPixels {
-            
             let newValue = newPixel(missingPixel: i)
+            image[i.x][i.y] = newValue
             
-            //DLog("newValue: \(newValue) for \(i)")
-            
-            image[i.y][i.x] = newValue
+            assert(newValue != -1, "New value should have changed")
+        }
+        
+        for row in 0..<rows {
+            for col in 0..<cols {
+                assert(image[row][col] != -1, "New value should have changed")
+            }
         }
     }
     
+    /**
+     For each missing pixel, calculate the new color
+    */
     func newPixel(missingPixel: Point2D) -> Float {
         
         var dividends: Float = 0
@@ -129,7 +146,7 @@ public class HoleFiller {
         for i in boundaryPoints {
 
             let weight = weighting(boundaryPixel: i, missingPixel: missingPixel)
-            dividends += weight * image[i.y][i.x]
+            dividends += weight * image[i.x][i.y]
             divisors += weight
 
         }
@@ -140,9 +157,10 @@ public class HoleFiller {
 
     /**
      Weighting function
+     Uses the distance between a boundary pixel and a missing pixel.
      
      _____1_____
-     ||x−yi|| +ε
+     ||x−yi||z +ε
      */
     func weighting(boundaryPixel: Point2D, missingPixel: Point2D) -> Float {
         
@@ -150,100 +168,19 @@ public class HoleFiller {
         let yDistance = Float(missingPixel.y - boundaryPixel.y)
         
         let distance = sqrt(xDistance*xDistance + yDistance*yDistance)
-        
-        //DLog("distance: \(missingPixel) to \(boundaryPixel) is \(distance)")
-        //CGVector(dx: vector.dx / scalar, dy: vector.dy / scalar)
-        //let normalized = normalise(x - yi)
+
         return 1 / (pow(distance, z) + e)
     }
-    
-//    func walkToFindEdge(from: Point2D) {
-//
-//        DLog(from)
-//
-//        if isInBounds(point: from) == false {
-//            return
-//        }
-//
-//        if animated {
-//            Thread.sleep(forTimeInterval: 0.1)
-//        }
-//
-//        let pixel = image[from.y][from.x]
-//
-//        // Have we visited
-//        if visited[from.y][from.x] > 0 {
-//            return
-//        }
-//        visited[from.y][from.x] = 1
-//
-//        if pixel == -1 {
-//            return
-//        }
-//
-//
-//        let topLeft = valueForPixel(Point2D(from.y - 1, from.x + 1))
-//        let top = valueForPixel(Point2D(from.y, from.x + 1))
-//        let topRight = valueForPixel(Point2D(from.y + 1, from.x + 1))
-//        let left = valueForPixel(Point2D(from.y - 1, from.x))
-//        // pixel itself
-//        let right = valueForPixel(Point2D(from.y + 1, from.x))
-//        let bottomLeft = valueForPixel(Point2D(from.y - 1, from.x - 1))
-//        let bottom = valueForPixel(Point2D(from.y, from.x - 1))
-//        let bottomRight = valueForPixel(Point2D(from.y + 1, from.x - 1))
-//
-//        let sum = topLeft + top + topRight + left + right + bottomLeft + bottom + bottomRight
-//        if sum < 0 {
-//            boundary[from.y][from.x] = 1
-//        }
-//
-//        let north = Point2D(from.y, from.x + 1)
-//        let south = Point2D(from.y, from.x - 1)
-//        let east = Point2D(from.y + 1, from.x)
-//        let west = Point2D(from.y - 1, from.x)
-//
-//        walkToFindEdge(from: north)
-//        walkToFindEdge(from: south)
-//        walkToFindEdge(from: east)
-//        walkToFindEdge(from: west)
-//    }
-    
-//    func walkAlongEdge(from: Point2D) {
-//
-//        if isInBounds(point: from) == false {
-//            return
-//        }
-//
-//        // Have we visited
-//        if visited[from.x][from.y] > 0 {
-//            return
-//        }
-//        visited[from.x][from.y] = 1
-//
-//        let pixel = image[from.x][from.y]
-//
-//
-//
-//
-//
-//        let topLeft = image[from.x - 1][from.y + 1]
-//        let topRight = image[from.x + 1][from.y + 1]
-//        let bottomLeft = image[from.x - 1][from.y - 1]
-//        let bottomRight = image[from.x + 1][from.y - 1]
-//
-//        let isEdge = [topLeft, topRight, bottomLeft, bottomRight].contains(0)
-//
-//        // We have found an edge pixel
-//        if isEdge {
-//            boundary[from.x][from.y] = 1
-//        }
-//
-//    }
     
 }
 
 extension HoleFiller {
     
+    /**
+     Helper function to help debug image data
+     Prints image data as a 2D Array which we can copy/paste
+     back into code
+    */
     func printImageArray() -> String {
         var outer: [String] = []
         for row in 0..<rows {
@@ -261,10 +198,14 @@ extension HoleFiller {
 
 extension HoleFiller {
     
-    func createSquareHole(at: Point2D, width: Int, height: Int) {
+    /**
+     Create a hole in the image by setting a rectangluar area pixel
+     values to -1
+    */
+    public func createSquareHole(at: Point2D, size: Size2D) {
         
-        for row in (at.y)..<height+(at.y) {
-            for col in (at.x)..<width+(at.x) {
+        for row in (at.y)..<size.height+(at.y) {
+            for col in (at.x)..<size.width+(at.x) {
                 image[row][col] = -1
             }
         }

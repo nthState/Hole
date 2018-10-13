@@ -7,111 +7,116 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
-		673EE61E21711BD300F9D694 /* ImageConverter.swift in Sources */ = {isa = PBXBuildFile; fileRef = 673EE61D21711BD300F9D694 /* ImageConverter.swift */; };
-		673EE62021711CC600F9D694 /* ProcessTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 673EE61F21711CC600F9D694 /* ProcessTests.swift */; };
-		673EE62221711CF100F9D694 /* grey1.png in Resources */ = {isa = PBXBuildFile; fileRef = 673EE62121711CF100F9D694 /* grey1.png */; };
-		673EE626217121F200F9D694 /* eggs.png in Resources */ = {isa = PBXBuildFile; fileRef = 673EE625217121F200F9D694 /* eggs.png */; };
-		6747010A21712D380043C520 /* halfEggs.png in Resources */ = {isa = PBXBuildFile; fileRef = 6747010921712D380043C520 /* halfEggs.png */; };
-		6747010C217131B40043C520 /* GenerationTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6747010B217131B40043C520 /* GenerationTests.swift */; };
-		6747010E217140940043C520 /* grey2.png in Resources */ = {isa = PBXBuildFile; fileRef = 6747010D217140940043C520 /* grey2.png */; };
-		67470110217144160043C520 /* grey3.png in Resources */ = {isa = PBXBuildFile; fileRef = 6747010F217144160043C520 /* grey3.png */; };
-		67704A34216FFC6600FD5693 /* HoleFramework.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 67704A2A216FFC6600FD5693 /* HoleFramework.framework */; };
-		67704A4F216FFC9E00FD5693 /* FindHoleTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 67704A4D216FFC9E00FD5693 /* FindHoleTests.swift */; };
-		67704A50216FFC9E00FD5693 /* WholeHoleTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 67704A4E216FFC9E00FD5693 /* WholeHoleTests.swift */; };
-		67704A53216FFCA500FD5693 /* HoleFiller.swift in Sources */ = {isa = PBXBuildFile; fileRef = 67704A51216FFCA500FD5693 /* HoleFiller.swift */; };
-		67704A54216FFCA500FD5693 /* Logger.swift in Sources */ = {isa = PBXBuildFile; fileRef = 67704A52216FFCA500FD5693 /* Logger.swift */; };
+		674701682172046A0043C520 /* HoleFramework.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 6747015E2172046A0043C520 /* HoleFramework.framework */; };
+		6747018E217204D80043C520 /* HoleFiller.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6747018B217204D80043C520 /* HoleFiller.swift */; };
+		6747018F217204D80043C520 /* ImageConverter.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6747018C217204D80043C520 /* ImageConverter.swift */; };
+		67470190217204D80043C520 /* Logger.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6747018D217204D80043C520 /* Logger.swift */; };
+		6747019C217204E90043C520 /* grey3.png in Resources */ = {isa = PBXBuildFile; fileRef = 67470192217204E80043C520 /* grey3.png */; };
+		6747019D217204E90043C520 /* GenerationTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 67470193217204E80043C520 /* GenerationTests.swift */; };
+		6747019E217204E90043C520 /* eggs.png in Resources */ = {isa = PBXBuildFile; fileRef = 67470194217204E80043C520 /* eggs.png */; };
+		6747019F217204E90043C520 /* FindHoleTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 67470195217204E80043C520 /* FindHoleTests.swift */; };
+		674701A0217204E90043C520 /* grey3Result.png in Resources */ = {isa = PBXBuildFile; fileRef = 67470196217204E80043C520 /* grey3Result.png */; };
+		674701A1217204E90043C520 /* ProcessTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 67470197217204E80043C520 /* ProcessTests.swift */; };
+		674701A2217204E90043C520 /* grey1.png in Resources */ = {isa = PBXBuildFile; fileRef = 67470198217204E90043C520 /* grey1.png */; };
+		674701A3217204E90043C520 /* grey2.png in Resources */ = {isa = PBXBuildFile; fileRef = 67470199217204E90043C520 /* grey2.png */; };
+		674701A4217204E90043C520 /* halfEggs.png in Resources */ = {isa = PBXBuildFile; fileRef = 6747019A217204E90043C520 /* halfEggs.png */; };
+		674701A5217204E90043C520 /* WholeHoleTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6747019B217204E90043C520 /* WholeHoleTests.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
-		67704A35216FFC6600FD5693 /* PBXContainerItemProxy */ = {
+		674701692172046A0043C520 /* PBXContainerItemProxy */ = {
 			isa = PBXContainerItemProxy;
-			containerPortal = 67704A21216FFC6600FD5693 /* Project object */;
+			containerPortal = 674701552172046A0043C520 /* Project object */;
 			proxyType = 1;
-			remoteGlobalIDString = 67704A29216FFC6600FD5693;
+			remoteGlobalIDString = 6747015D2172046A0043C520;
 			remoteInfo = HoleFramework;
 		};
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
-		673EE61D21711BD300F9D694 /* ImageConverter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ImageConverter.swift; sourceTree = "<group>"; };
-		673EE61F21711CC600F9D694 /* ProcessTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProcessTests.swift; sourceTree = "<group>"; };
-		673EE62121711CF100F9D694 /* grey1.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = grey1.png; sourceTree = "<group>"; };
-		673EE625217121F200F9D694 /* eggs.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = eggs.png; sourceTree = "<group>"; };
-		6747010921712D380043C520 /* halfEggs.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = halfEggs.png; sourceTree = "<group>"; };
-		6747010B217131B40043C520 /* GenerationTests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GenerationTests.swift; sourceTree = "<group>"; };
-		6747010D217140940043C520 /* grey2.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = grey2.png; sourceTree = "<group>"; };
-		6747010F217144160043C520 /* grey3.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = grey3.png; sourceTree = "<group>"; };
-		67704A2A216FFC6600FD5693 /* HoleFramework.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = HoleFramework.framework; sourceTree = BUILT_PRODUCTS_DIR; };
-		67704A2E216FFC6600FD5693 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
-		67704A33216FFC6600FD5693 /* HoleFrameworkTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = HoleFrameworkTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
-		67704A3A216FFC6600FD5693 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
-		67704A4D216FFC9E00FD5693 /* FindHoleTests.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = FindHoleTests.swift; sourceTree = "<group>"; };
-		67704A4E216FFC9E00FD5693 /* WholeHoleTests.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = WholeHoleTests.swift; sourceTree = "<group>"; };
-		67704A51216FFCA500FD5693 /* HoleFiller.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = HoleFiller.swift; sourceTree = "<group>"; };
-		67704A52216FFCA500FD5693 /* Logger.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Logger.swift; sourceTree = "<group>"; };
+		6747015E2172046A0043C520 /* HoleFramework.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = HoleFramework.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		674701622172046A0043C520 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		674701672172046A0043C520 /* HoleFrameworkTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = HoleFrameworkTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
+		6747016E2172046A0043C520 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		6747018B217204D80043C520 /* HoleFiller.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = HoleFiller.swift; sourceTree = "<group>"; };
+		6747018C217204D80043C520 /* ImageConverter.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ImageConverter.swift; sourceTree = "<group>"; };
+		6747018D217204D80043C520 /* Logger.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Logger.swift; sourceTree = "<group>"; };
+		67470191217204E80043C520 /* HoleFrameworkTests-Bridging-Header.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "HoleFrameworkTests-Bridging-Header.h"; sourceTree = "<group>"; };
+		67470192217204E80043C520 /* grey3.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = grey3.png; sourceTree = "<group>"; };
+		67470193217204E80043C520 /* GenerationTests.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = GenerationTests.swift; sourceTree = "<group>"; };
+		67470194217204E80043C520 /* eggs.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = eggs.png; sourceTree = "<group>"; };
+		67470195217204E80043C520 /* FindHoleTests.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = FindHoleTests.swift; sourceTree = "<group>"; };
+		67470196217204E80043C520 /* grey3Result.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = grey3Result.png; sourceTree = "<group>"; };
+		67470197217204E80043C520 /* ProcessTests.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ProcessTests.swift; sourceTree = "<group>"; };
+		67470198217204E90043C520 /* grey1.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = grey1.png; sourceTree = "<group>"; };
+		67470199217204E90043C520 /* grey2.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = grey2.png; sourceTree = "<group>"; };
+		6747019A217204E90043C520 /* halfEggs.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = halfEggs.png; sourceTree = "<group>"; };
+		6747019B217204E90043C520 /* WholeHoleTests.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = WholeHoleTests.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
-		67704A27216FFC6600FD5693 /* Frameworks */ = {
+		6747015B2172046A0043C520 /* Frameworks */ = {
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
-		67704A30216FFC6600FD5693 /* Frameworks */ = {
+		674701642172046A0043C520 /* Frameworks */ = {
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				67704A34216FFC6600FD5693 /* HoleFramework.framework in Frameworks */,
+				674701682172046A0043C520 /* HoleFramework.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
-		67704A20216FFC6600FD5693 = {
+		674701542172046A0043C520 = {
 			isa = PBXGroup;
 			children = (
-				67704A2C216FFC6600FD5693 /* HoleFramework */,
-				67704A37216FFC6600FD5693 /* HoleFrameworkTests */,
-				67704A2B216FFC6600FD5693 /* Products */,
+				674701602172046A0043C520 /* HoleFramework */,
+				6747016B2172046A0043C520 /* HoleFrameworkTests */,
+				6747015F2172046A0043C520 /* Products */,
 			);
 			sourceTree = "<group>";
 		};
-		67704A2B216FFC6600FD5693 /* Products */ = {
+		6747015F2172046A0043C520 /* Products */ = {
 			isa = PBXGroup;
 			children = (
-				67704A2A216FFC6600FD5693 /* HoleFramework.framework */,
-				67704A33216FFC6600FD5693 /* HoleFrameworkTests.xctest */,
+				6747015E2172046A0043C520 /* HoleFramework.framework */,
+				674701672172046A0043C520 /* HoleFrameworkTests.xctest */,
 			);
 			name = Products;
 			sourceTree = "<group>";
 		};
-		67704A2C216FFC6600FD5693 /* HoleFramework */ = {
+		674701602172046A0043C520 /* HoleFramework */ = {
 			isa = PBXGroup;
 			children = (
-				67704A51216FFCA500FD5693 /* HoleFiller.swift */,
-				673EE61D21711BD300F9D694 /* ImageConverter.swift */,
-				67704A52216FFCA500FD5693 /* Logger.swift */,
-				67704A2E216FFC6600FD5693 /* Info.plist */,
+				6747018B217204D80043C520 /* HoleFiller.swift */,
+				6747018C217204D80043C520 /* ImageConverter.swift */,
+				6747018D217204D80043C520 /* Logger.swift */,
+				674701622172046A0043C520 /* Info.plist */,
 			);
 			path = HoleFramework;
 			sourceTree = "<group>";
 		};
-		67704A37216FFC6600FD5693 /* HoleFrameworkTests */ = {
+		6747016B2172046A0043C520 /* HoleFrameworkTests */ = {
 			isa = PBXGroup;
 			children = (
-				67704A4D216FFC9E00FD5693 /* FindHoleTests.swift */,
-				67704A4E216FFC9E00FD5693 /* WholeHoleTests.swift */,
-				673EE61F21711CC600F9D694 /* ProcessTests.swift */,
-				6747010B217131B40043C520 /* GenerationTests.swift */,
-				673EE62121711CF100F9D694 /* grey1.png */,
-				6747010D217140940043C520 /* grey2.png */,
-				6747010F217144160043C520 /* grey3.png */,
-				673EE625217121F200F9D694 /* eggs.png */,
-				6747010921712D380043C520 /* halfEggs.png */,
-				67704A3A216FFC6600FD5693 /* Info.plist */,
+				67470194217204E80043C520 /* eggs.png */,
+				67470195217204E80043C520 /* FindHoleTests.swift */,
+				67470193217204E80043C520 /* GenerationTests.swift */,
+				67470198217204E90043C520 /* grey1.png */,
+				67470199217204E90043C520 /* grey2.png */,
+				67470192217204E80043C520 /* grey3.png */,
+				67470196217204E80043C520 /* grey3Result.png */,
+				6747019A217204E90043C520 /* halfEggs.png */,
+				67470197217204E80043C520 /* ProcessTests.swift */,
+				6747019B217204E90043C520 /* WholeHoleTests.swift */,
+				6747016E2172046A0043C520 /* Info.plist */,
+				67470191217204E80043C520 /* HoleFrameworkTests-Bridging-Header.h */,
 			);
 			path = HoleFrameworkTests;
 			sourceTree = "<group>";
@@ -119,7 +124,7 @@
 /* End PBXGroup section */
 
 /* Begin PBXHeadersBuildPhase section */
-		67704A25216FFC6600FD5693 /* Headers */ = {
+		674701592172046A0043C520 /* Headers */ = {
 			isa = PBXHeadersBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
@@ -129,14 +134,14 @@
 /* End PBXHeadersBuildPhase section */
 
 /* Begin PBXNativeTarget section */
-		67704A29216FFC6600FD5693 /* HoleFramework */ = {
+		6747015D2172046A0043C520 /* HoleFramework */ = {
 			isa = PBXNativeTarget;
-			buildConfigurationList = 67704A3E216FFC6600FD5693 /* Build configuration list for PBXNativeTarget "HoleFramework" */;
+			buildConfigurationList = 674701722172046A0043C520 /* Build configuration list for PBXNativeTarget "HoleFramework" */;
 			buildPhases = (
-				67704A25216FFC6600FD5693 /* Headers */,
-				67704A26216FFC6600FD5693 /* Sources */,
-				67704A27216FFC6600FD5693 /* Frameworks */,
-				67704A28216FFC6600FD5693 /* Resources */,
+				674701592172046A0043C520 /* Headers */,
+				6747015A2172046A0043C520 /* Sources */,
+				6747015B2172046A0043C520 /* Frameworks */,
+				6747015C2172046A0043C520 /* Resources */,
 			);
 			buildRules = (
 			);
@@ -144,121 +149,122 @@
 			);
 			name = HoleFramework;
 			productName = HoleFramework;
-			productReference = 67704A2A216FFC6600FD5693 /* HoleFramework.framework */;
+			productReference = 6747015E2172046A0043C520 /* HoleFramework.framework */;
 			productType = "com.apple.product-type.framework";
 		};
-		67704A32216FFC6600FD5693 /* HoleFrameworkTests */ = {
+		674701662172046A0043C520 /* HoleFrameworkTests */ = {
 			isa = PBXNativeTarget;
-			buildConfigurationList = 67704A41216FFC6600FD5693 /* Build configuration list for PBXNativeTarget "HoleFrameworkTests" */;
+			buildConfigurationList = 674701752172046A0043C520 /* Build configuration list for PBXNativeTarget "HoleFrameworkTests" */;
 			buildPhases = (
-				67704A2F216FFC6600FD5693 /* Sources */,
-				67704A30216FFC6600FD5693 /* Frameworks */,
-				67704A31216FFC6600FD5693 /* Resources */,
+				674701632172046A0043C520 /* Sources */,
+				674701642172046A0043C520 /* Frameworks */,
+				674701652172046A0043C520 /* Resources */,
 			);
 			buildRules = (
 			);
 			dependencies = (
-				67704A36216FFC6600FD5693 /* PBXTargetDependency */,
+				6747016A2172046A0043C520 /* PBXTargetDependency */,
 			);
 			name = HoleFrameworkTests;
 			productName = HoleFrameworkTests;
-			productReference = 67704A33216FFC6600FD5693 /* HoleFrameworkTests.xctest */;
+			productReference = 674701672172046A0043C520 /* HoleFrameworkTests.xctest */;
 			productType = "com.apple.product-type.bundle.unit-test";
 		};
 /* End PBXNativeTarget section */
 
 /* Begin PBXProject section */
-		67704A21216FFC6600FD5693 /* Project object */ = {
+		674701552172046A0043C520 /* Project object */ = {
 			isa = PBXProject;
 			attributes = {
 				LastSwiftUpdateCheck = 1000;
 				LastUpgradeCheck = 1000;
 				ORGANIZATIONNAME = nthState;
 				TargetAttributes = {
-					67704A29216FFC6600FD5693 = {
+					6747015D2172046A0043C520 = {
 						CreatedOnToolsVersion = 10.0;
 						LastSwiftMigration = 1000;
 					};
-					67704A32216FFC6600FD5693 = {
+					674701662172046A0043C520 = {
 						CreatedOnToolsVersion = 10.0;
 						LastSwiftMigration = 1000;
 					};
 				};
 			};
-			buildConfigurationList = 67704A24216FFC6600FD5693 /* Build configuration list for PBXProject "HoleFramework" */;
+			buildConfigurationList = 674701582172046A0043C520 /* Build configuration list for PBXProject "HoleFramework" */;
 			compatibilityVersion = "Xcode 9.3";
 			developmentRegion = en;
 			hasScannedForEncodings = 0;
 			knownRegions = (
 				en,
 			);
-			mainGroup = 67704A20216FFC6600FD5693;
-			productRefGroup = 67704A2B216FFC6600FD5693 /* Products */;
+			mainGroup = 674701542172046A0043C520;
+			productRefGroup = 6747015F2172046A0043C520 /* Products */;
 			projectDirPath = "";
 			projectRoot = "";
 			targets = (
-				67704A29216FFC6600FD5693 /* HoleFramework */,
-				67704A32216FFC6600FD5693 /* HoleFrameworkTests */,
+				6747015D2172046A0043C520 /* HoleFramework */,
+				674701662172046A0043C520 /* HoleFrameworkTests */,
 			);
 		};
 /* End PBXProject section */
 
 /* Begin PBXResourcesBuildPhase section */
-		67704A28216FFC6600FD5693 /* Resources */ = {
+		6747015C2172046A0043C520 /* Resources */ = {
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
-		67704A31216FFC6600FD5693 /* Resources */ = {
+		674701652172046A0043C520 /* Resources */ = {
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				67470110217144160043C520 /* grey3.png in Resources */,
-				673EE62221711CF100F9D694 /* grey1.png in Resources */,
-				6747010E217140940043C520 /* grey2.png in Resources */,
-				6747010A21712D380043C520 /* halfEggs.png in Resources */,
-				673EE626217121F200F9D694 /* eggs.png in Resources */,
+				674701A2217204E90043C520 /* grey1.png in Resources */,
+				6747019C217204E90043C520 /* grey3.png in Resources */,
+				674701A3217204E90043C520 /* grey2.png in Resources */,
+				674701A0217204E90043C520 /* grey3Result.png in Resources */,
+				674701A4217204E90043C520 /* halfEggs.png in Resources */,
+				6747019E217204E90043C520 /* eggs.png in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
 /* End PBXResourcesBuildPhase section */
 
 /* Begin PBXSourcesBuildPhase section */
-		67704A26216FFC6600FD5693 /* Sources */ = {
+		6747015A2172046A0043C520 /* Sources */ = {
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				67704A53216FFCA500FD5693 /* HoleFiller.swift in Sources */,
-				67704A54216FFCA500FD5693 /* Logger.swift in Sources */,
-				673EE61E21711BD300F9D694 /* ImageConverter.swift in Sources */,
+				6747018F217204D80043C520 /* ImageConverter.swift in Sources */,
+				67470190217204D80043C520 /* Logger.swift in Sources */,
+				6747018E217204D80043C520 /* HoleFiller.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
-		67704A2F216FFC6600FD5693 /* Sources */ = {
+		674701632172046A0043C520 /* Sources */ = {
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				67704A4F216FFC9E00FD5693 /* FindHoleTests.swift in Sources */,
-				67704A50216FFC9E00FD5693 /* WholeHoleTests.swift in Sources */,
-				673EE62021711CC600F9D694 /* ProcessTests.swift in Sources */,
-				6747010C217131B40043C520 /* GenerationTests.swift in Sources */,
+				6747019F217204E90043C520 /* FindHoleTests.swift in Sources */,
+				674701A5217204E90043C520 /* WholeHoleTests.swift in Sources */,
+				6747019D217204E90043C520 /* GenerationTests.swift in Sources */,
+				674701A1217204E90043C520 /* ProcessTests.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
 /* End PBXSourcesBuildPhase section */
 
 /* Begin PBXTargetDependency section */
-		67704A36216FFC6600FD5693 /* PBXTargetDependency */ = {
+		6747016A2172046A0043C520 /* PBXTargetDependency */ = {
 			isa = PBXTargetDependency;
-			target = 67704A29216FFC6600FD5693 /* HoleFramework */;
-			targetProxy = 67704A35216FFC6600FD5693 /* PBXContainerItemProxy */;
+			target = 6747015D2172046A0043C520 /* HoleFramework */;
+			targetProxy = 674701692172046A0043C520 /* PBXContainerItemProxy */;
 		};
 /* End PBXTargetDependency section */
 
 /* Begin XCBuildConfiguration section */
-		67704A3C216FFC6600FD5693 /* Debug */ = {
+		674701702172046A0043C520 /* Debug */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				ALWAYS_SEARCH_USER_PATHS = NO;
@@ -290,7 +296,7 @@
 				CLANG_WARN_UNGUARDED_AVAILABILITY = YES_AGGRESSIVE;
 				CLANG_WARN_UNREACHABLE_CODE = YES;
 				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
-				CODE_SIGN_IDENTITY = "iPhone Developer";
+				CODE_SIGN_IDENTITY = "Mac Developer";
 				COPY_PHASE_STRIP = NO;
 				CURRENT_PROJECT_VERSION = 1;
 				DEBUG_INFORMATION_FORMAT = dwarf;
@@ -310,11 +316,11 @@
 				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
 				GCC_WARN_UNUSED_FUNCTION = YES;
 				GCC_WARN_UNUSED_VARIABLE = YES;
-				IPHONEOS_DEPLOYMENT_TARGET = 12.0;
+				MACOSX_DEPLOYMENT_TARGET = 10.13;
 				MTL_ENABLE_DEBUG_INFO = INCLUDE_SOURCE;
 				MTL_FAST_MATH = YES;
 				ONLY_ACTIVE_ARCH = YES;
-				SDKROOT = iphoneos;
+				SDKROOT = macosx;
 				SWIFT_ACTIVE_COMPILATION_CONDITIONS = DEBUG;
 				SWIFT_OPTIMIZATION_LEVEL = "-Onone";
 				VERSIONING_SYSTEM = "apple-generic";
@@ -322,7 +328,7 @@
 			};
 			name = Debug;
 		};
-		67704A3D216FFC6600FD5693 /* Release */ = {
+		674701712172046A0043C520 /* Release */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				ALWAYS_SEARCH_USER_PATHS = NO;
@@ -354,7 +360,7 @@
 				CLANG_WARN_UNGUARDED_AVAILABILITY = YES_AGGRESSIVE;
 				CLANG_WARN_UNREACHABLE_CODE = YES;
 				CLANG_WARN__DUPLICATE_METHOD_MATCH = YES;
-				CODE_SIGN_IDENTITY = "iPhone Developer";
+				CODE_SIGN_IDENTITY = "Mac Developer";
 				COPY_PHASE_STRIP = NO;
 				CURRENT_PROJECT_VERSION = 1;
 				DEBUG_INFORMATION_FORMAT = "dwarf-with-dsym";
@@ -368,34 +374,36 @@
 				GCC_WARN_UNINITIALIZED_AUTOS = YES_AGGRESSIVE;
 				GCC_WARN_UNUSED_FUNCTION = YES;
 				GCC_WARN_UNUSED_VARIABLE = YES;
-				IPHONEOS_DEPLOYMENT_TARGET = 12.0;
+				MACOSX_DEPLOYMENT_TARGET = 10.13;
 				MTL_ENABLE_DEBUG_INFO = NO;
 				MTL_FAST_MATH = YES;
-				SDKROOT = iphoneos;
+				SDKROOT = macosx;
 				SWIFT_COMPILATION_MODE = wholemodule;
 				SWIFT_OPTIMIZATION_LEVEL = "-O";
-				VALIDATE_PRODUCT = YES;
 				VERSIONING_SYSTEM = "apple-generic";
 				VERSION_INFO_PREFIX = "";
 			};
 			name = Release;
 		};
-		67704A3F216FFC6600FD5693 /* Debug */ = {
+		674701732172046A0043C520 /* Debug */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
+				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
 				CLANG_ENABLE_MODULES = YES;
 				CODE_SIGN_IDENTITY = "";
 				CODE_SIGN_STYLE = Automatic;
+				COMBINE_HIDPI_IMAGES = YES;
 				DEFINES_MODULE = YES;
 				DEVELOPMENT_TEAM = QA8E8RMHCT;
 				DYLIB_COMPATIBILITY_VERSION = 1;
 				DYLIB_CURRENT_VERSION = 1;
 				DYLIB_INSTALL_NAME_BASE = "@rpath";
+				FRAMEWORK_VERSION = A;
 				INFOPLIST_FILE = HoleFramework/Info.plist;
 				INSTALL_PATH = "$(LOCAL_LIBRARY_DIR)/Frameworks";
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
-					"@executable_path/Frameworks",
+					"@executable_path/../Frameworks",
 					"@loader_path/Frameworks",
 				);
 				PRODUCT_BUNDLE_IDENTIFIER = com.hole.HoleFramework;
@@ -403,108 +411,111 @@
 				SKIP_INSTALL = YES;
 				SWIFT_OPTIMIZATION_LEVEL = "-Onone";
 				SWIFT_VERSION = 4.2;
-				TARGETED_DEVICE_FAMILY = "1,2";
 			};
 			name = Debug;
 		};
-		67704A40216FFC6600FD5693 /* Release */ = {
+		674701742172046A0043C520 /* Release */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
+				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
 				CLANG_ENABLE_MODULES = YES;
 				CODE_SIGN_IDENTITY = "";
 				CODE_SIGN_STYLE = Automatic;
+				COMBINE_HIDPI_IMAGES = YES;
 				DEFINES_MODULE = YES;
 				DEVELOPMENT_TEAM = QA8E8RMHCT;
 				DYLIB_COMPATIBILITY_VERSION = 1;
 				DYLIB_CURRENT_VERSION = 1;
 				DYLIB_INSTALL_NAME_BASE = "@rpath";
+				FRAMEWORK_VERSION = A;
 				INFOPLIST_FILE = HoleFramework/Info.plist;
 				INSTALL_PATH = "$(LOCAL_LIBRARY_DIR)/Frameworks";
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
-					"@executable_path/Frameworks",
+					"@executable_path/../Frameworks",
 					"@loader_path/Frameworks",
 				);
 				PRODUCT_BUNDLE_IDENTIFIER = com.hole.HoleFramework;
 				PRODUCT_NAME = "$(TARGET_NAME:c99extidentifier)";
 				SKIP_INSTALL = YES;
 				SWIFT_VERSION = 4.2;
-				TARGETED_DEVICE_FAMILY = "1,2";
 			};
 			name = Release;
 		};
-		67704A42216FFC6600FD5693 /* Debug */ = {
+		674701762172046A0043C520 /* Debug */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
 				CLANG_ENABLE_MODULES = YES;
 				CODE_SIGN_STYLE = Automatic;
+				COMBINE_HIDPI_IMAGES = YES;
 				DEVELOPMENT_TEAM = QA8E8RMHCT;
 				INFOPLIST_FILE = HoleFrameworkTests/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
-					"@executable_path/Frameworks",
-					"@loader_path/Frameworks",
+					"@executable_path/../Frameworks",
+					"@loader_path/../Frameworks",
 				);
 				PRODUCT_BUNDLE_IDENTIFIER = com.hole.HoleFrameworkTests;
 				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_OBJC_BRIDGING_HEADER = "HoleFrameworkTests/HoleFrameworkTests-Bridging-Header.h";
 				SWIFT_OPTIMIZATION_LEVEL = "-Onone";
 				SWIFT_VERSION = 4.2;
-				TARGETED_DEVICE_FAMILY = "1,2";
 			};
 			name = Debug;
 		};
-		67704A43216FFC6600FD5693 /* Release */ = {
+		674701772172046A0043C520 /* Release */ = {
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				ALWAYS_EMBED_SWIFT_STANDARD_LIBRARIES = YES;
 				CLANG_ENABLE_MODULES = YES;
 				CODE_SIGN_STYLE = Automatic;
+				COMBINE_HIDPI_IMAGES = YES;
 				DEVELOPMENT_TEAM = QA8E8RMHCT;
 				INFOPLIST_FILE = HoleFrameworkTests/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
-					"@executable_path/Frameworks",
-					"@loader_path/Frameworks",
+					"@executable_path/../Frameworks",
+					"@loader_path/../Frameworks",
 				);
 				PRODUCT_BUNDLE_IDENTIFIER = com.hole.HoleFrameworkTests;
 				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_OBJC_BRIDGING_HEADER = "HoleFrameworkTests/HoleFrameworkTests-Bridging-Header.h";
 				SWIFT_VERSION = 4.2;
-				TARGETED_DEVICE_FAMILY = "1,2";
 			};
 			name = Release;
 		};
 /* End XCBuildConfiguration section */
 
 /* Begin XCConfigurationList section */
-		67704A24216FFC6600FD5693 /* Build configuration list for PBXProject "HoleFramework" */ = {
+		674701582172046A0043C520 /* Build configuration list for PBXProject "HoleFramework" */ = {
 			isa = XCConfigurationList;
 			buildConfigurations = (
-				67704A3C216FFC6600FD5693 /* Debug */,
-				67704A3D216FFC6600FD5693 /* Release */,
+				674701702172046A0043C520 /* Debug */,
+				674701712172046A0043C520 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
 			defaultConfigurationName = Release;
 		};
-		67704A3E216FFC6600FD5693 /* Build configuration list for PBXNativeTarget "HoleFramework" */ = {
+		674701722172046A0043C520 /* Build configuration list for PBXNativeTarget "HoleFramework" */ = {
 			isa = XCConfigurationList;
 			buildConfigurations = (
-				67704A3F216FFC6600FD5693 /* Debug */,
-				67704A40216FFC6600FD5693 /* Release */,
+				674701732172046A0043C520 /* Debug */,
+				674701742172046A0043C520 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
 			defaultConfigurationName = Release;
 		};
-		67704A41216FFC6600FD5693 /* Build configuration list for PBXNativeTarget "HoleFrameworkTests" */ = {
+		674701752172046A0043C520 /* Build configuration list for PBXNativeTarget "HoleFrameworkTests" */ = {
 			isa = XCConfigurationList;
 			buildConfigurations = (
-				67704A42216FFC6600FD5693 /* Debug */,
-				67704A43216FFC6600FD5693 /* Release */,
+				674701762172046A0043C520 /* Debug */,
+				674701772172046A0043C520 /* Release */,
 			);
 			defaultConfigurationIsVisible = 0;
 			defaultConfigurationName = Release;
 		};
 /* End XCConfigurationList section */
 	};
-	rootObject = 67704A21216FFC6600FD5693 /* Project object */;
+	rootObject = 674701552172046A0043C520 /* Project object */;
 }
