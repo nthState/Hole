@@ -21,6 +21,9 @@
 		674701A3217204E90043C520 /* grey2.png in Resources */ = {isa = PBXBuildFile; fileRef = 67470199217204E90043C520 /* grey2.png */; };
 		674701A4217204E90043C520 /* halfEggs.png in Resources */ = {isa = PBXBuildFile; fileRef = 6747019A217204E90043C520 /* halfEggs.png */; };
 		674701A5217204E90043C520 /* WholeHoleTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6747019B217204E90043C520 /* WholeHoleTests.swift */; };
+		67AD13F6217235290008CEE0 /* HoleFillerGPU.swift in Sources */ = {isa = PBXBuildFile; fileRef = 67AD13F5217235290008CEE0 /* HoleFillerGPU.swift */; };
+		67AD13FF21723A7B0008CEE0 /* Metal.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 67AD13FD21723A7A0008CEE0 /* Metal.framework */; };
+		67AD140021723A7B0008CEE0 /* MetalKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 67AD13FE21723A7A0008CEE0 /* MetalKit.framework */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -52,6 +55,9 @@
 		67470199217204E90043C520 /* grey2.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = grey2.png; sourceTree = "<group>"; };
 		6747019A217204E90043C520 /* halfEggs.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = halfEggs.png; sourceTree = "<group>"; };
 		6747019B217204E90043C520 /* WholeHoleTests.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = WholeHoleTests.swift; sourceTree = "<group>"; };
+		67AD13F5217235290008CEE0 /* HoleFillerGPU.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HoleFillerGPU.swift; sourceTree = "<group>"; };
+		67AD13FD21723A7A0008CEE0 /* Metal.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Metal.framework; path = System/Library/Frameworks/Metal.framework; sourceTree = SDKROOT; };
+		67AD13FE21723A7A0008CEE0 /* MetalKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = MetalKit.framework; path = System/Library/Frameworks/MetalKit.framework; sourceTree = SDKROOT; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -59,6 +65,8 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				67AD13FF21723A7B0008CEE0 /* Metal.framework in Frameworks */,
+				67AD140021723A7B0008CEE0 /* MetalKit.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -79,6 +87,7 @@
 				674701602172046A0043C520 /* HoleFramework */,
 				6747016B2172046A0043C520 /* HoleFrameworkTests */,
 				6747015F2172046A0043C520 /* Products */,
+				67AD13FC21723A7A0008CEE0 /* Frameworks */,
 			);
 			sourceTree = "<group>";
 		};
@@ -95,6 +104,7 @@
 			isa = PBXGroup;
 			children = (
 				6747018B217204D80043C520 /* HoleFiller.swift */,
+				67AD13F5217235290008CEE0 /* HoleFillerGPU.swift */,
 				6747018C217204D80043C520 /* ImageConverter.swift */,
 				6747018D217204D80043C520 /* Logger.swift */,
 				674701622172046A0043C520 /* Info.plist */,
@@ -119,6 +129,15 @@
 				67470191217204E80043C520 /* HoleFrameworkTests-Bridging-Header.h */,
 			);
 			path = HoleFrameworkTests;
+			sourceTree = "<group>";
+		};
+		67AD13FC21723A7A0008CEE0 /* Frameworks */ = {
+			isa = PBXGroup;
+			children = (
+				67AD13FD21723A7A0008CEE0 /* Metal.framework */,
+				67AD13FE21723A7A0008CEE0 /* MetalKit.framework */,
+			);
+			name = Frameworks;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -237,6 +256,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				6747018F217204D80043C520 /* ImageConverter.swift in Sources */,
+				67AD13F6217235290008CEE0 /* HoleFillerGPU.swift in Sources */,
 				67470190217204D80043C520 /* Logger.swift in Sources */,
 				6747018E217204D80043C520 /* HoleFiller.swift in Sources */,
 			);
