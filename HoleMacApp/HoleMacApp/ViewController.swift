@@ -72,7 +72,10 @@ class ViewController: NSViewController {
         //holeFiller.createSquareHole(at: parameters.holeAt, size: parameters.holeSize)
         holeFiller.createSquareHole(at: Point2D(1,1), size: Size2D(2,2))
         
+        let start = CFAbsoluteTimeGetCurrent()
         holeFiller.findHole()
+        let duration = CFAbsoluteTimeGetCurrent()-start
+        DLog("Duration: \(duration)")
         
 //        holeFiller.fillHole()
 //

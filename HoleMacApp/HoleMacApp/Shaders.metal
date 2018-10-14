@@ -35,18 +35,18 @@ kernel void findEdges(device float *inArray [[buffer(0)]],
             bool hasNegative = false;
             
             // Bottom left
-//            if ((ptr + 2) < finishIndex) {
-//                if (inArray[ptr + 2] == -1) {
-//                    hasNegative = true;
-//                }
-//            }
+            if ((ptr + width - 1) < totalLength) {
+                if (inArray[ptr + width - 1] == -1) {
+                    hasNegative = true;
+                }
+            }
 //
 //            // Bottom
-//            if ((ptr + 3) < finishIndex) {
-//                if (inArray[ptr + 3] == -1) {
-//                    hasNegative = true;
-//                }
-//            }
+            if ((ptr + width) < totalLength) {
+                if (inArray[ptr + width] == -1) {
+                    hasNegative = true;
+                }
+            }
 //
 //            // Bottom right
             if ((ptr + width + 1) < totalLength) {
@@ -70,25 +70,25 @@ kernel void findEdges(device float *inArray [[buffer(0)]],
             }
             
             // top left
-//            if ((ptr - 4) > -1) {
-//                if (inArray[ptr - 4] == -1) {
-//                    hasNegative = true;
-//                }
-//            }
+            if ((ptr - width - 1) > -1) {
+                if (inArray[ptr - width - 1] == -1) {
+                    hasNegative = true;
+                }
+            }
 //
 //            // top
-//            if ((ptr - 3) > -1) {
-//                if (inArray[ptr - 3] == -1) {
-//                    hasNegative = true;
-//                }
-//            }
+            if ((ptr - width ) > -1) {
+                if (inArray[ptr - width ] == -1) {
+                    hasNegative = true;
+                }
+            }
 //
 //            // top right
-//            if ((ptr - 2) > -1) {
-//                if (inArray[ptr - 2] == -1) {
-//                    hasNegative = true;
-//                }
-//            }
+        if ((ptr - width + 1) > -1) {
+            if (inArray[ptr - width + 1] == -1) {
+                hasNegative = true;
+            }
+        }
         
             
             if (hasNegative && pixel != -1) {
