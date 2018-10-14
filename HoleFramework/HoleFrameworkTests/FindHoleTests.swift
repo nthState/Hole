@@ -25,7 +25,7 @@ class FindHoleTests: XCTestCase {
             [ 0, 0, 0, 0, 0, 0, 0, 0]
         ]
         
-        let holeFiller = HoleFiller(image: imageData)
+        let holeFiller = HoleFillerCPU(image: imageData)
         
         // Act
         holeFiller.findHole()
@@ -58,7 +58,7 @@ class FindHoleTests: XCTestCase {
             [ 0, 0, 0, 0, 0, 0, 0, 0]
         ]
         
-        let holeFiller = HoleFiller(image: imageData)
+        let holeFiller = HoleFillerCPU(image: imageData)
         
         // Act
         holeFiller.findHole()

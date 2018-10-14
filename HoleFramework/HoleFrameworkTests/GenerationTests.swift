@@ -9,6 +9,9 @@
 import XCTest
 @testable import HoleFramework
 
+/**
+ Run these manually to see the results
+ */
 class GenerationTests : XCTestCase {
     
     func test_use_real_image() {
@@ -23,12 +26,12 @@ class GenerationTests : XCTestCase {
         
         let (imageData, width, height) = ImageConverter.convertImageTo2DPixelArray(cgImage: cgImage)
         
-        let holeFiller = HoleFiller(image: imageData)
+        let holeFiller = HoleFillerCPU(image: imageData)
         
         // Create a hole in the image data
         holeFiller.createSquareHole(at: Point2D(1, 1), size: Size2D(5, 5))
         
-        let debug = holeFiller.printImageArray()
+        //let debug = holeFiller.printImageArray()
         //print(debug)
         
         // Act
@@ -53,19 +56,19 @@ class GenerationTests : XCTestCase {
         
         let (imageData, width, height) = ImageConverter.convertImageTo2DPixelArray(cgImage: cgImage)
         
-        let holeFiller = HoleFiller(image: imageData)
+        let holeFiller = HoleFillerCPU(image: imageData)
         
         // Create a hole in the image data
         holeFiller.createSquareHole(at: Point2D(100, 100), size: Size2D(50,50))
         
-        let debug = holeFiller.printImageArray()
+        //let debug = holeFiller.printImageArray()
         //print(debug)
         
         // Act
         holeFiller.findHole()
         holeFiller.fillHole()
         
-        let outputImage = ImageConverter.convert2DPixelArrayToImage(array2D: holeFiller.image, width: width, height: height)
+        //let outputImage = ImageConverter.convert2DPixelArrayToImage(array2D: holeFiller.image, width: width, height: height)
         
         // Assert
         //XCTAssertEqual(holeFiller.boundaryPixelCount, 12)
@@ -83,12 +86,12 @@ class GenerationTests : XCTestCase {
         
         let (imageData, width, height) = ImageConverter.convertImageTo2DPixelArray(cgImage: cgImage)
         
-        let holeFiller = HoleFiller(image: imageData)
+        let holeFiller = HoleFillerCPU(image: imageData)
         
         // Create a hole in the image data
         holeFiller.createSquareHole(at: Point2D(300, 300), size: Size2D(100, 100))
         
-        let debug = holeFiller.printImageArray()
+        //let debug = holeFiller.printImageArray()
         //print(debug)
         
         // Act
@@ -113,12 +116,12 @@ class GenerationTests : XCTestCase {
         
         let (imageData, width, height) = ImageConverter.convertImageTo2DPixelArray(cgImage: cgImage)
         
-        let holeFiller = HoleFiller(image: imageData)
+        let holeFiller = HoleFillerCPU(image: imageData)
         
         // Create a hole in the image data
         holeFiller.createSquareHole(at: Point2D(260, 260), size: Size2D(100, 100))
         
-        let debug = holeFiller.printImageArray()
+        //let debug = holeFiller.printImageArray()
         //print(debug)
         
         // Act
@@ -143,7 +146,7 @@ class GenerationTests : XCTestCase {
         
         let (imageData, width, height) = ImageConverter.convertImageTo2DPixelArray(cgImage: cgImage)
         
-        let holeFiller = HoleFiller(image: imageData)
+        let holeFiller = HoleFillerCPU(image: imageData)
 //        holeFiller.z = 1.12
 //        holeFiller.e = 0.01
         holeFiller.z = 2.42
@@ -152,7 +155,7 @@ class GenerationTests : XCTestCase {
         // Create a hole in the image data
         holeFiller.createSquareHole(at: Point2D(260, 160), size: Size2D(100, 100))
         
-        let debug = holeFiller.printImageArray()
+        //let debug = holeFiller.printImageArray()
         //print(debug)
         
         // Act

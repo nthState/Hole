@@ -63,8 +63,8 @@
       </BuildableProductRunnable>
       <CommandLineArguments>
          <CommandLineArgument
-            argument = "-i /Users/chrisdavis/Documents/Projects/Hole/HoleFramework/HoleFrameworkTests/grey3.png -z 1.12 -e 0.0001 -h 30,30,100,100 -o /Users/chrisdavis/Documents/Projects/Hole/HoleFramework/HoleFrameworkTests/grey3_new.png"
-            isEnabled = "YES">
+            argument = "-p gpu -i /Users/chrisdavis/Documents/Projects/Hole/HoleFramework/HoleFrameworkTests/grey3.png -z 2.42 -e 0.0001 -h 30,30,100,100 -o /Users/chrisdavis/Documents/Projects/Hole/HoleFramework/HoleFrameworkTests/grey3_new.png"
+            isEnabled = "NO">
          </CommandLineArgument>
       </CommandLineArguments>
       <AdditionalOptions>

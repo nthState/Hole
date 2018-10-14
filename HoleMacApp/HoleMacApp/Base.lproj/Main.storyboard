@@ -701,7 +701,7 @@
                 </windowController>
                 <customObject id="Oky-zY-oP4" userLabel="First Responder" customClass="NSResponder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="-97" y="-49"/>
+            <point key="canvasLocation" x="146" y="419"/>
         </scene>
         <!--View Controller-->
         <scene sceneID="hIz-AP-VOD">
@@ -856,6 +856,10 @@
                                 <rect key="frame" x="20" y="450" width="552" height="5"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMinY="YES"/>
                             </box>
+                            <box verticalHuggingPriority="750" fixedFrame="YES" boxType="separator" translatesAutoresizingMaskIntoConstraints="NO" id="cB2-0K-qzI">
+                                <rect key="frame" x="24" y="406" width="552" height="5"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMinY="YES"/>
+                            </box>
                             <textField horizontalHuggingPriority="251" verticalHuggingPriority="750" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="DKj-u3-37Z">
                                 <rect key="frame" x="165" y="427" width="270" height="17"/>
                                 <autoresizingMask key="autoresizingMask"/>
@@ -865,10 +869,14 @@
                                     <color key="backgroundColor" name="textBackgroundColor" catalog="System" colorSpace="catalog"/>
                                 </textFieldCell>
                             </textField>
-                            <box verticalHuggingPriority="750" fixedFrame="YES" boxType="separator" translatesAutoresizingMaskIntoConstraints="NO" id="cB2-0K-qzI">
-                                <rect key="frame" x="24" y="406" width="552" height="5"/>
+                            <button verticalHuggingPriority="750" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="OfJ-Jv-XVI">
+                                <rect key="frame" x="415" y="504" width="117" height="18"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMinY="YES"/>
-                            </box>
+                                <buttonCell key="cell" type="check" title="Use GPU?" bezelStyle="regularSquare" imagePosition="left" state="on" inset="2" id="rHr-d5-Dgh">
+                                    <behavior key="behavior" changeContents="YES" doesNotDimImage="YES" lightByContents="YES"/>
+                                    <font key="font" metaFont="system"/>
+                                </buttonCell>
+                            </button>
                         </subviews>
                     </view>
                     <connections>
@@ -881,12 +889,13 @@
                         <outlet property="holeSizeWidthTextField" destination="cPJ-Xo-ps6" id="KQU-lD-5N5"/>
                         <outlet property="originalImageView" destination="tgm-1y-Lpq" id="0kr-rR-5bL"/>
                         <outlet property="processedImageView" destination="PxN-sF-0tx" id="86m-5u-ywm"/>
+                        <outlet property="useGPU" destination="OfJ-Jv-XVI" id="PJa-l1-duk"/>
                         <outlet property="zTextField" destination="uIU-Ju-eg6" id="Qxa-Rw-nI3"/>
                     </connections>
                 </viewController>
                 <customObject id="rPt-NT-nkU" userLabel="First Responder" customClass="NSResponder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="-31" y="691"/>
+            <point key="canvasLocation" x="146" y="1245"/>
         </scene>
     </scenes>
 </document>

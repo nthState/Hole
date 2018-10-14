@@ -17,7 +17,7 @@ func main() {
         return showHelp()
     }
     
-    if arguments.count < 11 {
+    if arguments.count < 13 {
         log("Not all arguments supplied")
         return showHelp()
     }
@@ -29,6 +29,8 @@ func main() {
         let argument = arguments[arg]
     
         switch argument {
+        case "-p":
+            parameters.processingType = arguments[arg + 1]
         case "-i":
             parameters.inputImage = arguments[arg + 1]
         case "-z":
@@ -44,11 +46,9 @@ func main() {
         default:
             break
         }
-
     }
     
     run(with: parameters)
-    
 }
 
 func run(with parameters: HoleParameters) {
@@ -57,19 +57,18 @@ func run(with parameters: HoleParameters) {
         return log("Couldn't load/find \(String(describing: parameters.inputImage))")
     }
     
+    let start = CFAbsoluteTimeGetCurrent()
+    
     let (imageData, width, height) = ImageConverter.convertImageTo2DPixelArray(cgImage: cgImage)
     
-    let holeFiller = HoleFiller(image: imageData)
+    var holeFiller = HoleFiller.create(image: imageData, processingType: parameters.processingType)
     holeFiller.z = parameters.z
     holeFiller.e = parameters.e
     
-    // Create a hole
     holeFiller.createSquareHole(at: parameters.holeAt, size: parameters.holeSize)
     
-    // Find hole
     holeFiller.findHole()
     
-    // Fill hole
     holeFiller.fillHole()
     
     // Output image
@@ -81,11 +80,12 @@ func run(with parameters: HoleParameters) {
     
     let success = ImageConverter.save(cgImage: newImage, to: parameters.outputImage)
     
-    log("Image save to: \(String(describing: parameters.outputImage))? \(success)")
+    log("Image save to: \(String(describing: parameters.outputImage))? \(success) in \(CFAbsoluteTimeGetCurrent()-start) seconds")
 }
 
 func showHelp() {
     log("Help:")
+    log("-p, Use the cpu or gpu implementation")
     log("-i, Path to an image")
     log("-z, pow for weighting function")
     log("-e, epslion value, small positive")
@@ -93,7 +93,7 @@ func showHelp() {
     log("-o, Path to save computed image to")
     log("")
     log("Example:")
-    log("HoleCommandLine -i /path/to/MyGreyScaleImage.png -z 1.12 -e 0.0001 -hole 30,30,100,100 -o /path/to/MyNewGreyScaleImage.png")
+    log("HoleCommandLine -p gpu -i /path/to/MyGreyScaleImage.png -z 1.12 -e 0.0001 -hole 30,30,100,100 -o /path/to/MyNewGreyScaleImage.png")
 }
 
 func log(_ str: String) {
@@ -101,4 +101,3 @@ func log(_ str: String) {
 }
 
 main()
-

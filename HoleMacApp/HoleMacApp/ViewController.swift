@@ -25,6 +25,8 @@ class ViewController: NSViewController {
     @IBOutlet weak var zTextField: NSTextField!
     @IBOutlet weak var eTextField: NSTextField!
     
+    @IBOutlet weak var useGPU: NSButton!
+    
     var parameters = HoleParameters()
     
     override func viewDidLoad() {
@@ -51,6 +53,7 @@ class ViewController: NSViewController {
         parameters.holeSize = Size2D(Int(holeSizeWidthTextField.stringValue)!, Int(holeSizeHeightTextField.stringValue)!)
         parameters.z = Float(zTextField.stringValue)
         parameters.e = Float(eTextField.stringValue)
+        parameters.processingType = useGPU.state == .on ? "gpu" : "cpu"
         
         DispatchQueue.global(qos: .background).async {
             self.processImage()
@@ -67,22 +70,15 @@ class ViewController: NSViewController {
         
         let (imageData, width, height) = ImageConverter.convertImageTo2DPixelArray(cgImage: cgImage)
         
-        let holeFiller = HoleFillerGPU(image: imageData)
+        var holeFiller = HoleFiller.create(image: imageData, processingType: parameters.processingType)
         holeFiller.z = parameters.z
         holeFiller.e = parameters.e
         
-holeFiller.createSquareHole(at: parameters.holeAt, size: parameters.holeSize)
-        holeFiller.createSquareHole(at: Point2D(1,1), size: Size2D(2,2))
+        holeFiller.createSquareHole(at: parameters.holeAt, size: parameters.holeSize)
         
-        var start = CFAbsoluteTimeGetCurrent()
         holeFiller.findHole()
-        var duration = CFAbsoluteTimeGetCurrent()-start
-        DLog("Find duration: \(duration)")
         
-        start = CFAbsoluteTimeGetCurrent()
         holeFiller.fillHole()
-        duration = CFAbsoluteTimeGetCurrent()-start
-        DLog("Fill duration: \(duration)")
 
         let outputCGImage = ImageConverter.convert2DPixelArrayToImage(array2D: holeFiller.image, width: width, height: height)
 
@@ -124,7 +120,5 @@ extension ViewController : NSOpenSavePanelDelegate {
                 self.loadOriginal()
             }
         }
-        
     }
-    
 }

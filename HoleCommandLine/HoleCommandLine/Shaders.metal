@@ -179,5 +179,5 @@ kernel void fillHole(device PointWithValue2D *boundaryPixels [[buffer(0)]],
             outArray[ptr] = newPixel(missingPixelLocation, boundaryPixels, boundaryCount, z, e);
         }
     }
-    
+
 }

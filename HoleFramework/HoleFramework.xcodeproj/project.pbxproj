@@ -8,7 +8,7 @@
 
 /* Begin PBXBuildFile section */
 		674701682172046A0043C520 /* HoleFramework.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 6747015E2172046A0043C520 /* HoleFramework.framework */; };
-		6747018E217204D80043C520 /* HoleFiller.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6747018B217204D80043C520 /* HoleFiller.swift */; };
+		6747018E217204D80043C520 /* HoleFillerCPU.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6747018B217204D80043C520 /* HoleFillerCPU.swift */; };
 		6747018F217204D80043C520 /* ImageConverter.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6747018C217204D80043C520 /* ImageConverter.swift */; };
 		67470190217204D80043C520 /* Logger.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6747018D217204D80043C520 /* Logger.swift */; };
 		6747019C217204E90043C520 /* grey3.png in Resources */ = {isa = PBXBuildFile; fileRef = 67470192217204E80043C520 /* grey3.png */; };
@@ -24,6 +24,8 @@
 		67AD13F6217235290008CEE0 /* HoleFillerGPU.swift in Sources */ = {isa = PBXBuildFile; fileRef = 67AD13F5217235290008CEE0 /* HoleFillerGPU.swift */; };
 		67AD13FF21723A7B0008CEE0 /* Metal.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 67AD13FD21723A7A0008CEE0 /* Metal.framework */; };
 		67AD140021723A7B0008CEE0 /* MetalKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 67AD13FE21723A7A0008CEE0 /* MetalKit.framework */; };
+		67AD14062173D2DD0008CEE0 /* Types.swift in Sources */ = {isa = PBXBuildFile; fileRef = 67AD14052173D2DD0008CEE0 /* Types.swift */; };
+		67AD140A2173D6A50008CEE0 /* HoleFiller.swift in Sources */ = {isa = PBXBuildFile; fileRef = 67AD14092173D6A50008CEE0 /* HoleFiller.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -41,7 +43,7 @@
 		674701622172046A0043C520 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		674701672172046A0043C520 /* HoleFrameworkTests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = HoleFrameworkTests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		6747016E2172046A0043C520 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
-		6747018B217204D80043C520 /* HoleFiller.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = HoleFiller.swift; sourceTree = "<group>"; };
+		6747018B217204D80043C520 /* HoleFillerCPU.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = HoleFillerCPU.swift; sourceTree = "<group>"; };
 		6747018C217204D80043C520 /* ImageConverter.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ImageConverter.swift; sourceTree = "<group>"; };
 		6747018D217204D80043C520 /* Logger.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Logger.swift; sourceTree = "<group>"; };
 		67470191217204E80043C520 /* HoleFrameworkTests-Bridging-Header.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "HoleFrameworkTests-Bridging-Header.h"; sourceTree = "<group>"; };
@@ -58,6 +60,8 @@
 		67AD13F5217235290008CEE0 /* HoleFillerGPU.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HoleFillerGPU.swift; sourceTree = "<group>"; };
 		67AD13FD21723A7A0008CEE0 /* Metal.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Metal.framework; path = System/Library/Frameworks/Metal.framework; sourceTree = SDKROOT; };
 		67AD13FE21723A7A0008CEE0 /* MetalKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = MetalKit.framework; path = System/Library/Frameworks/MetalKit.framework; sourceTree = SDKROOT; };
+		67AD14052173D2DD0008CEE0 /* Types.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Types.swift; sourceTree = "<group>"; };
+		67AD14092173D6A50008CEE0 /* HoleFiller.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HoleFiller.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -103,7 +107,9 @@
 		674701602172046A0043C520 /* HoleFramework */ = {
 			isa = PBXGroup;
 			children = (
-				6747018B217204D80043C520 /* HoleFiller.swift */,
+				67AD14052173D2DD0008CEE0 /* Types.swift */,
+				67AD14092173D6A50008CEE0 /* HoleFiller.swift */,
+				6747018B217204D80043C520 /* HoleFillerCPU.swift */,
 				67AD13F5217235290008CEE0 /* HoleFillerGPU.swift */,
 				6747018C217204D80043C520 /* ImageConverter.swift */,
 				6747018D217204D80043C520 /* Logger.swift */,
@@ -116,13 +122,13 @@
 			isa = PBXGroup;
 			children = (
 				67470194217204E80043C520 /* eggs.png */,
-				67470195217204E80043C520 /* FindHoleTests.swift */,
-				67470193217204E80043C520 /* GenerationTests.swift */,
 				67470198217204E90043C520 /* grey1.png */,
 				67470199217204E90043C520 /* grey2.png */,
 				67470192217204E80043C520 /* grey3.png */,
 				67470196217204E80043C520 /* grey3Result.png */,
 				6747019A217204E90043C520 /* halfEggs.png */,
+				67470195217204E80043C520 /* FindHoleTests.swift */,
+				67470193217204E80043C520 /* GenerationTests.swift */,
 				67470197217204E80043C520 /* ProcessTests.swift */,
 				6747019B217204E90043C520 /* WholeHoleTests.swift */,
 				6747016E2172046A0043C520 /* Info.plist */,
@@ -258,7 +264,9 @@
 				6747018F217204D80043C520 /* ImageConverter.swift in Sources */,
 				67AD13F6217235290008CEE0 /* HoleFillerGPU.swift in Sources */,
 				67470190217204D80043C520 /* Logger.swift in Sources */,
-				6747018E217204D80043C520 /* HoleFiller.swift in Sources */,
+				67AD14062173D2DD0008CEE0 /* Types.swift in Sources */,
+				6747018E217204D80043C520 /* HoleFillerCPU.swift in Sources */,
+				67AD140A2173D6A50008CEE0 /* HoleFiller.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

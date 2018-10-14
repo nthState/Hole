@@ -10,11 +10,13 @@ import Foundation
 import Metal
 import MetalKit
 
+/**
+ A 2D point with a value, sent to the Metal compute function
+ */
 public struct PointWithValue2D {
     let x: uint!
     let y: uint!
     let value: Float!
-    
     
     public init(_ x: uint, _ y: uint, _ value: Float) {
         self.x = x
@@ -23,25 +25,23 @@ public struct PointWithValue2D {
     }
 }
 
-public class HoleFillerGPU {
+public class HoleFillerGPU : HoleFillerProtocol {
     
     public var z: Float = 1.12                              // Weighting function pow()
     public var e: Float = 0.0001                            // Epsilon, a small value
-    
     public var image: [[Float]]!                            // 2D Array of the image data
     public private(set) var boundaryPoints: [PointWithValue2D] = []  // Points that make the boundary
     public private(set) var missingPixels: [Point2D] = []   // Missing pixel locations
     
-    
-    var device: MTLDevice!                                  // Metal device, the GPU
+    var device: MTLDevice!
     var defaultLibrary: MTLLibrary!
     var commandQueue: MTLCommandQueue!
-    var findEdgesFunction:MTLFunction?
+    var findEdgesFunction:MTLFunction?                      // Edges function
     var findEdgesPipeline: MTLComputePipelineState!
-    var fillHoleFunction:MTLFunction?
+    var fillHoleFunction:MTLFunction?                       // Fill hole function
     var fillHolePipeline: MTLComputePipelineState!
-    var threadsPerThreadgroup:MTLSize!                      /// Threading
-    var threadgroupsPerGrid: MTLSize!                       /// Thread Groups
+    var threadsPerThreadgroup:MTLSize!
+    var threadgroupsPerGrid: MTLSize!
     
     public var rows: Int {
         return image.count
@@ -52,7 +52,7 @@ public class HoleFillerGPU {
     
     // MARK:- Constructor
     
-    public init(image: [[Float]]) {
+    required public init(image: [[Float]]) {
         self.image = image
         
         configureMetal()
@@ -81,22 +81,16 @@ public class HoleFillerGPU {
         
     }
     
+    /**
+     Send image data as 1D array to compute,
+     Work on 3x3 chunks
+    */
     public func findHole() {
-        
-//        let w = findEdgesPipeline.threadExecutionWidth
-//        let h = findEdgesPipeline.maxTotalThreadsPerThreadgroup / w
-//        threadsPerThreadgroup = MTLSizeMake(w, h, 1)
-//
-//        let widthInThreadgroups = (cols + threadsPerThreadgroup.width - 1) / threadsPerThreadgroup.width
-//        let heightInThreadgroups = (rows + threadsPerThreadgroup.height - 1) / threadsPerThreadgroup.height
-//        threadgroupsPerGrid = MTLSizeMake(widthInThreadgroups, heightInThreadgroups, 1)
-        
-        
+
         threadsPerThreadgroup = MTLSizeMake(3, 3, 1);
         threadgroupsPerGrid = MTLSizeMake(cols / threadsPerThreadgroup.width,
                                    rows / threadsPerThreadgroup.height,
                                    1);
-        
         
         let image1D: [Float] = image.flatMap { $0 }
         let length = image1D.count * MemoryLayout<Float>.stride
@@ -126,6 +120,7 @@ public class HoleFillerGPU {
         boundaryPoints = []
         missingPixels = []
         
+        // Scan results into boundaries, and missing pixels
         let start = CFAbsoluteTimeGetCurrent()
         for i in 0..<(self.cols*self.rows) {
             
@@ -135,51 +130,26 @@ public class HoleFillerGPU {
             if computeOutputs[i] == 1 {
                 let value = image1D[i]
                 boundaryPoints.append(PointWithValue2D(uint(x),uint(y),value))
-                
                 assert(value != -1)
             }
             if image1D[i] == -1 {
-                //image[y][x] = -1
                 missingPixels.append(Point2D(x,y))
             }
         }
         let duration = CFAbsoluteTimeGetCurrent()-start
-        DLog("Loop Duration: \(duration)")
+        DLog("GPU Loop Duration: \(duration)")
         
-        DLog("Boundary count: \(boundaryPoints.count)")
-        DLog("Missing pixel count: \(missingPixels.count)")
+        DLog("GPU Boundary count: \(boundaryPoints.count)")
+        DLog("GPU Missing pixel count: \(missingPixels.count)")
         
     }
     
     public func fillHole() {
-        
     
-        
-//        threadsPerThreadgroup = MTLSizeMake(1, 1, 1);
-//        threadgroupsPerGrid = MTLSizeMake(cols / threadsPerThreadgroup.width,
-//                                          rows / threadsPerThreadgroup.height,
-//                                          1);
-        
-        var pts: [PointWithValue2D] = boundaryPoints
+        let pts: [PointWithValue2D] = boundaryPoints
         let boundaryLength = boundaryPoints.count * MemoryLayout<PointWithValue2D>.stride
         let boundaryBuffer = device.makeBuffer(bytes: pts, length: boundaryLength, options: [])
-        
-//        let test = boundaryBuffer!.contents().bindMemory(to: PointWithValue2D.self, capacity: boundaryPoints.count)
-//
-//        withUnsafePointer(to: &pts) { print($0) }
-//        print(boundaryBuffer?.contents())
-//
-//        withUnsafePointer(to: &test[0]) {
-//            print(" str value has address: \($0)")
-//        }
-//        withUnsafePointer(to: &test[1]) {
-//            print(" str value has address: \($0)")
-//        }
-        
-        var missing: [uint2] = missingPixels.compactMap({ uint2(UInt32($0.x), UInt32($0.y)) })
-        let missingLength = missingPixels.count * MemoryLayout<uint2>.stride
-        let missingBuffer = device.makeBuffer(bytes: missing, length: missingLength, options: [])
-        
+
         let image1D: [Float] = image.flatMap { $0 }
         let length = image1D.count * MemoryLayout<Float>.stride
         let inBuffer = device.makeBuffer(bytes: image1D, length: length, options: [])
@@ -187,12 +157,6 @@ public class HoleFillerGPU {
         
         let width: [Int] = [self.cols]
         let bufferWidth = device.makeBuffer(bytes: width, length: MemoryLayout<Int>.stride, options: [])
-        
-        let height: [Int] = [self.rows]
-        let bufferHeight = device.makeBuffer(bytes: height, length: MemoryLayout<Int>.stride, options: [])
-        
-        let missingPixelCount: [Int] = [missingPixels.count]
-        let bufferMissingPixelCount = device.makeBuffer(bytes: missingPixelCount, length: MemoryLayout<Int>.stride, options: [])
         
         let boundaryCount: [Int] = [boundaryPoints.count]
         let bufferBoundaryCount = device.makeBuffer(bytes: boundaryCount, length: MemoryLayout<Int>.stride, options: [])
@@ -207,16 +171,12 @@ public class HoleFillerGPU {
         let commandEncoder = commandBuffer.makeComputeCommandEncoder()!
         commandEncoder.setComputePipelineState(fillHolePipeline)
         commandEncoder.setBuffer(boundaryBuffer, offset: 0, index: 0)
-        //commandEncoder.setBuffer(missingBuffer, offset: 0, index: 1)
-        commandEncoder.setBuffer(inBuffer, offset: 0, index: 2)
-        commandEncoder.setBuffer(outBuffer, offset: 0, index: 3)
-        commandEncoder.setBuffer(bufferWidth, offset: 0, index: 4)
-        commandEncoder.setBuffer(bufferHeight, offset: 0, index: 5)
-        commandEncoder.setBuffer(bufferMissingPixelCount, offset: 0, index: 6)
-        commandEncoder.setBuffer(bufferBoundaryCount, offset: 0, index: 7)
-        commandEncoder.setBuffer(bufferZ, offset: 0, index: 8)
-        commandEncoder.setBuffer(bufferE, offset: 0, index: 9)
-        
+        commandEncoder.setBuffer(inBuffer, offset: 0, index: 1)
+        commandEncoder.setBuffer(outBuffer, offset: 0, index: 2)
+        commandEncoder.setBuffer(bufferWidth, offset: 0, index: 3)
+        commandEncoder.setBuffer(bufferBoundaryCount, offset: 0, index: 4)
+        commandEncoder.setBuffer(bufferZ, offset: 0, index: 5)
+        commandEncoder.setBuffer(bufferE, offset: 0, index: 6)
         commandEncoder.dispatchThreadgroups(threadgroupsPerGrid, threadsPerThreadgroup: threadsPerThreadgroup)
         commandEncoder.endEncoding()
         commandBuffer.commit();
@@ -227,7 +187,6 @@ public class HoleFillerGPU {
         DLog("\(computeOutputs[0]) \(computeOutputs[1])")
         DLog("\(computeOutputs[3]) \(computeOutputs[4])")
 
-        
         for i in 0..<(self.cols*self.rows) {
             
             let x = i % (self.cols)

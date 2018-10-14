@@ -25,7 +25,7 @@ class WholeHoleTests : XCTestCase {
             [-1,-1,-1,-1,-1,-1,-1,-1]
         ]
         
-        let holeFiller = HoleFiller(image: imageData)
+        let holeFiller = HoleFillerCPU(image: imageData)
         
         // Act
         holeFiller.findHole()

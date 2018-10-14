@@ -10,6 +10,7 @@
 		674701852172047E0043C520 /* main.swift in Sources */ = {isa = PBXBuildFile; fileRef = 674701842172047E0043C520 /* main.swift */; };
 		674701A8217204F90043C520 /* HoleFramework.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 674701A7217204F90043C520 /* HoleFramework.framework */; };
 		674701AA217205E50043C520 /* HoleFramework.framework in CopyFiles */ = {isa = PBXBuildFile; fileRef = 674701A7217204F90043C520 /* HoleFramework.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
+		67AD14082173D4050008CEE0 /* Shaders.metal in Sources */ = {isa = PBXBuildFile; fileRef = 67AD14072173D4050008CEE0 /* Shaders.metal */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXCopyFilesBuildPhase section */
@@ -38,6 +39,7 @@
 		674701812172047E0043C520 /* HoleCommandLine */ = {isa = PBXFileReference; explicitFileType = "compiled.mach-o.executable"; includeInIndex = 0; path = HoleCommandLine; sourceTree = BUILT_PRODUCTS_DIR; };
 		674701842172047E0043C520 /* main.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = main.swift; sourceTree = "<group>"; };
 		674701A7217204F90043C520 /* HoleFramework.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; path = HoleFramework.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		67AD14072173D4050008CEE0 /* Shaders.metal */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.metal; path = Shaders.metal; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -73,6 +75,7 @@
 			isa = PBXGroup;
 			children = (
 				674701842172047E0043C520 /* main.swift */,
+				67AD14072173D4050008CEE0 /* Shaders.metal */,
 			);
 			path = HoleCommandLine;
 			sourceTree = "<group>";
@@ -143,6 +146,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				67AD14082173D4050008CEE0 /* Shaders.metal in Sources */,
 				674701852172047E0043C520 /* main.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;

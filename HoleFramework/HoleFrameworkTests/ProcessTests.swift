@@ -23,19 +23,19 @@ class ProcessTests : XCTestCase {
        
         let (imageData, _, _) = ImageConverter.convertImageTo2DPixelArray(cgImage: cgImage)
         
-        let holeFiller = HoleFiller(image: imageData)
+        let holeFiller = HoleFillerCPU(image: imageData)
         
         // Create a hole in the image data
         holeFiller.createSquareHole(at: Point2D(1, 1), size: Size2D(2,2))
         
-        let debug = holeFiller.printImageArray()
+        //let debug = holeFiller.printImageArray()
         //print(debug)
         
         // Act
         holeFiller.findHole()
         
         // Assert
-        XCTAssertEqual(holeFiller.boundaryPixelCount, 12)
+        XCTAssertEqual(holeFiller.boundaryPoints.count, 12)
     }
     
     func test_use_long_real_image() {
@@ -50,19 +50,19 @@ class ProcessTests : XCTestCase {
         
         let (imageData, _, _) = ImageConverter.convertImageTo2DPixelArray(cgImage: cgImage)
         
-        let holeFiller = HoleFiller(image: imageData)
+        let holeFiller = HoleFillerCPU(image: imageData)
         
         // Create a hole in the image data
         holeFiller.createSquareHole(at: Point2D(1, 1), size: Size2D(2,2))
         
-        let debug = holeFiller.printImageArray()
+        //let debug = holeFiller.printImageArray()
         //print(debug)
         
         // Act
         holeFiller.findHole()
         
         // Assert
-        XCTAssertEqual(holeFiller.boundaryPixelCount, 12)
+        XCTAssertEqual(holeFiller.boundaryPoints.count, 12)
     }
     
 }
