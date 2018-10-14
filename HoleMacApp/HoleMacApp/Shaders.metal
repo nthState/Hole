@@ -116,10 +116,10 @@ kernel void findEdges(device float *inArray [[buffer(0)]],
 
 }
 
-float weighting(uint2 bounaryPixelLocation, uint2 missingPixelLocation, float z, float e) {
+float weighting(PointWithValue2D bounaryPixelLocation, uint2 missingPixelLocation, float z, float e) {
     
-    float xDistance = missingPixelLocation.x - bounaryPixelLocation.x;
-    float yDistance = missingPixelLocation.y - bounaryPixelLocation.y;
+    float xDistance = float(missingPixelLocation.x) - float(bounaryPixelLocation.x);
+    float yDistance = float(missingPixelLocation.y) - float(bounaryPixelLocation.y);
     
     float dist = sqrt(xDistance*xDistance + yDistance*yDistance);
     
@@ -130,15 +130,14 @@ float weighting(uint2 bounaryPixelLocation, uint2 missingPixelLocation, float z,
 
 float newPixel(uint2 missingPixelLocation,
                device PointWithValue2D *boundaryPixels,
-               uint boundaryCount,
+               int boundaryCount,
                float z,
                float e) {
     
     float dividends = 0;
     float divisors = 0;
-    for (uint i = 0; i < boundaryCount; i++) {
-        uint2 boundaryPixelLocation = uint2(boundaryPixels[i].x, boundaryPixels[i].y);
-        float weight = weighting(boundaryPixelLocation, missingPixelLocation, z, e);
+    for (int i = 0; i < boundaryCount; i++) {
+        float weight = weighting(boundaryPixels[i], missingPixelLocation, z, e);
         dividends += weight * boundaryPixels[i].value;
         divisors += weight;
     }
@@ -161,14 +160,14 @@ kernel void fillHole(device PointWithValue2D *boundaryPixels [[buffer(0)]],
                      uint2 gid [[thread_position_in_grid]]) {
 
 
-    uint missingPixelCount = missingPixelCountArray[0];
-    uint boundaryCount = boundaryCountArray[0];
+    //uint missingPixelCount = missingPixelCountArray[0];
+    int boundaryCount = boundaryCountArray[0];
     
     float z = zArray[0];
     float e = eArray[0];
 
     int width = int(widthArray[0]);
-    int height = int(heightArray[0]);
+    //int height = int(heightArray[0]);
     
     int startIndex = int((gid.y * width) + (gid.x * 9));
     
