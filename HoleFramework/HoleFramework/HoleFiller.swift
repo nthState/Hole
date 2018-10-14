@@ -8,7 +8,15 @@
 
 import Foundation
 
-public typealias Point2D = (x: Int, y: Int)
+public struct Point2D {
+    let x: Int!
+    let y: Int!
+
+    public init(_ x: Int, _ y: Int) {
+        self.x = x
+        self.y = y
+    }
+}
 public typealias Size2D = (width: Int, height: Int)
 
 public struct HoleParameters {

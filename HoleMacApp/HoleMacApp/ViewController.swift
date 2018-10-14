@@ -63,32 +63,37 @@ class ViewController: NSViewController {
             return log("Couldn't load/find \(String(describing: parameters.inputImage))")
         }
         
+        let processStart = CFAbsoluteTimeGetCurrent()
+        
         let (imageData, width, height) = ImageConverter.convertImageTo2DPixelArray(cgImage: cgImage)
         
         let holeFiller = HoleFillerGPU(image: imageData)
         holeFiller.z = parameters.z
         holeFiller.e = parameters.e
         
-        //holeFiller.createSquareHole(at: parameters.holeAt, size: parameters.holeSize)
+holeFiller.createSquareHole(at: parameters.holeAt, size: parameters.holeSize)
         holeFiller.createSquareHole(at: Point2D(1,1), size: Size2D(2,2))
         
-        let start = CFAbsoluteTimeGetCurrent()
+        var start = CFAbsoluteTimeGetCurrent()
         holeFiller.findHole()
-        let duration = CFAbsoluteTimeGetCurrent()-start
-        DLog("Duration: \(duration)")
+        var duration = CFAbsoluteTimeGetCurrent()-start
+        DLog("Find duration: \(duration)")
         
-//        holeFiller.fillHole()
-//
-//        let outputCGImage = ImageConverter.convert2DPixelArrayToImage(array2D: holeFiller.image, width: width, height: height)
-//
-//        guard let newImage = outputCGImage else {
-//            return log("Image could not be created")
-//        }
-//
-//        DispatchQueue.main.async {
-//            self.processedImageView.image = NSImage(cgImage: newImage, size: NSSize(width: width, height: height))
-//            self.clearLog()
-//        }
+        start = CFAbsoluteTimeGetCurrent()
+        holeFiller.fillHole()
+        duration = CFAbsoluteTimeGetCurrent()-start
+        DLog("Fill duration: \(duration)")
+
+        let outputCGImage = ImageConverter.convert2DPixelArrayToImage(array2D: holeFiller.image, width: width, height: height)
+
+        guard let newImage = outputCGImage else {
+            return log("Image could not be created")
+        }
+
+        DispatchQueue.main.async {
+            self.processedImageView.image = NSImage(cgImage: newImage, size: NSSize(width: width, height: height))
+            self.log("Time: \(CFAbsoluteTimeGetCurrent()-processStart)")
+        }
     }
     
     func clearLog() {

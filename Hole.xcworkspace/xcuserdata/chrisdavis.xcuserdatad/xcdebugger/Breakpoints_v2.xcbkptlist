@@ -22,32 +22,32 @@
       <BreakpointProxy
          BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
          <BreakpointContent
-            shouldBeEnabled = "Yes"
+            shouldBeEnabled = "No"
             ignoreCount = "0"
             continueAfterRunningActions = "No"
-            filePath = "HoleMacApp/HoleMacApp/ViewController.swift"
-            timestampString = "561205072.378491"
+            filePath = "HoleFramework/HoleFramework/HoleFillerGPU.swift"
+            timestampString = "561229827.559575"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "79"
-            endingLineNumber = "79"
-            landmarkName = "processImage()"
+            startingLineNumber = "187"
+            endingLineNumber = "187"
+            landmarkName = "fillHole()"
             landmarkType = "7">
          </BreakpointContent>
       </BreakpointProxy>
       <BreakpointProxy
          BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
          <BreakpointContent
-            shouldBeEnabled = "No"
+            shouldBeEnabled = "Yes"
             ignoreCount = "0"
             continueAfterRunningActions = "No"
             filePath = "HoleFramework/HoleFramework/HoleFillerGPU.swift"
-            timestampString = "561205072.379076"
+            timestampString = "561229827.5605479"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "106"
-            endingLineNumber = "106"
-            landmarkName = "findHole()"
+            startingLineNumber = "230"
+            endingLineNumber = "230"
+            landmarkName = "fillHole()"
             landmarkType = "7">
          </BreakpointContent>
       </BreakpointProxy>
