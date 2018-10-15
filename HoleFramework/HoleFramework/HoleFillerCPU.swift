@@ -48,7 +48,7 @@ public class HoleFillerCPU : HoleFillerProtocol {
         return inHorizontalBounds && inVerticalBounds
     }
     
-    func valueForPixel(_ point: Point2D) -> Float {
+    func safeValueForPixel(_ point: Point2D) -> Float {
          if isInBounds(point: point) == false {
             return 0
         }
@@ -68,17 +68,17 @@ public class HoleFillerCPU : HoleFillerProtocol {
             for col in 0..<cols {
                 
                 
-                let bottomLeft = valueForPixel(Point2D(col - 1, row + 1))
-                let bottom = valueForPixel(Point2D(col, row + 1))
-                let bottomRight = valueForPixel(Point2D(col + 1, row + 1))
+                let bottomLeft = safeValueForPixel(Point2D(col - 1, row + 1))
+                let bottom = safeValueForPixel(Point2D(col, row + 1))
+                let bottomRight = safeValueForPixel(Point2D(col + 1, row + 1))
                 
-                let left = valueForPixel(Point2D(col - 1, row))
+                let left = safeValueForPixel(Point2D(col - 1, row))
                 let pixel = image[row][col]
-                let right = valueForPixel(Point2D(col + 1, row))
+                let right = safeValueForPixel(Point2D(col + 1, row))
                 
-                let topLeft = valueForPixel(Point2D(col - 1, row - 1))
-                let top = valueForPixel(Point2D(col, row - 1))
-                let topRight = valueForPixel(Point2D(col + 1, row - 1))
+                let topLeft = safeValueForPixel(Point2D(col - 1, row - 1))
+                let top = safeValueForPixel(Point2D(col, row - 1))
+                let topRight = safeValueForPixel(Point2D(col + 1, row - 1))
                 
                 let contains = [topLeft, top, topRight, left, right, bottomLeft, bottom, bottomRight].contains(-1)
                 if contains && pixel != -1 {

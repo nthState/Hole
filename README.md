@@ -68,3 +68,7 @@ You can run a full example like this:
 
 ```HoleCommandLine -p gpu -i /Users/chrisdavis/Documents/Projects/Hole/HoleFramework/HoleFrameworkTests/grey3.png -z 2.42 -e 0.0001 -h 30,30,100,100 -o /Users/chrisdavis/Documents/Projects/Hole/HoleFramework/HoleFrameworkTests/grey3_new.png```
 
+## Bugs, Concessions and Optimizations
+
+There are bugs, bounds checks, data type checks are not performed.
+The code for the CPU and GPU can be optimized further too.
